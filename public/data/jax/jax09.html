@@ -1,0 +1,48 @@
+<h2>9. Changing the size of elements in a formula</h2>
+<p>You can make something larger in a formula with one of the text commands such
+as <tex>\large</tex> or <tex>\huge</tex>:</p>
+<table style="width: 100%;" class="centre">
+    <tr>
+        <td class="src"><pre><code>{\large \#}\;{\Large \#}\;{\LARGE \#}
+  \quad{\huge \#}\;{\Huge \#}</code></pre></td>
+        <td class="eqn">\[{\large \#}\;{\Large \#}\;{\LARGE \#}\quad{\huge \#}\;{\Huge \#}\]</td>
+    </tr>
+</table>
+<p>If you want a \(\#\) symbol analogous to a summation sign in its typographical
+properties, then the best way to achieve that is to deﬁne it as a symbol of type
+“mathop” with the <tex>\DeclareMathSymbol</tex> command.</p>
+<p>Consider the expression:</p>
+<table style="width: 100%;" class="centre">
+    <tr>
+        <td class="src"><pre><code>\frac{\sum_{n > 0} z^n}
+  {\prod_{1\leq k\leq n} (1-q^k)}</code></pre></td>
+        <td class="eqn">\[\frac{\sum_{n > 0} z^n}
+{\prod_{1\leq k\leq n} (1-q^k)}\]</td>
+    </tr>
+</table>
+<p>Using <tex>\dfrac</tex> instead of <tex>\frac</tex> wouldn’t change anything
+in this case; if you want the sum and product symbols to appear full size, you
+need the <tex>\displaystyle</tex> command:</p>
+<table style="width: 100%;" class="centre">
+    <tr>
+        <td class="src"><pre><code>\frac{{\displaystyle\sum_{n > 0} z^n}}
+  {{\displaystyle\prod_{1\leq k\leq n} (1-q^k)}}</code></pre></td>
+        <td class="eqn">\[\frac{{\displaystyle\sum_{n > 0} z^n}}
+{{\displaystyle\prod_{1\leq k\leq n} (1-q^k)}}\]</td>
+    </tr>
+</table>
+<p>And if you want full-size symbols but with limits on the side, use the
+<tex>\nolimits</tex> command also:</p>
+<table style="width: 100%;" class="centre">
+    <tr>
+        <td class="src"><pre><code>\frac{{\displaystyle\sum\nolimits_{n> 0} z^n}}
+  {{\displaystyle\prod\nolimits_{1\leq k\leq n} (1-q^k)}}</code></pre></td>
+        <td class="eqn">\[\frac{{\displaystyle\sum\nolimits_{n> 0} z^n}}
+{{\displaystyle\prod\nolimits_{1\leq k\leq n} (1-q^k)}}\]</td>
+    </tr>
+</table>
+<p>There are similar commands <tex>\textstyle</tex>, <tex>\scriptstyle</tex>,
+and <tex>\scriptscriptstyle</tex>, to force MathJax to use the symbol size and
+spacing that would be applied in (respectively) inline math, first-order
+subscript, or second-order order subscript, even when the current context would
+normally yield some other size.</p>

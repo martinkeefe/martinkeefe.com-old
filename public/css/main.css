@@ -1,0 +1,215 @@
+@import 'https://fonts.googleapis.com/css?family=Lato';
+@import 'https://fonts.googleapis.com/css?family=Alegreya:400,400i,700,700i,900,900i&subset=latin-ext';
+
+@import url(hilite.css);
+
+/*============================================================================*/
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	color: #BBB;
+	background-color: #334;
+	-font-family: Georgia;
+	font-family: 'Alegreya', sans-serif;
+	font-size: 110%;
+}
+
+a, a:visited {
+	color: #FFF;
+	text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+  color: #FFF;
+}
+
+/*============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Lato', sans-serif;
+	font-weight: 400;
+	letter-spacing: .15em;
+	text-transform: uppercase;
+	margin: 2em 0 1.5em 0;
+	color: #8CF;
+}
+
+h1, h2, h3 {
+	clear: both;
+}
+
+h1 {font-size: 1.5em; padding-top: 1em; border-top: #666 1px solid; margin-top: 0;}
+h2 {font-size: 1.0em; margin-top: 2em; }
+h3 {font-size: 0.9em; margin-top: 3em; }
+h4 {font-size: 0.85em; margin-top: 3em; text-transform: none;}
+
+p {
+	text-align: justify;
+	-line-height: 1.6em;
+}
+p.note {
+	font-size: 0.9em;
+}
+
+/*============================================================================*/
+
+#content {
+	max-width: 1000px;
+	margin: 1em auto;
+	display: flex;
+	-flex-wrap: wrap;
+}
+
+nav.side {
+  width: 10em;
+  margin-right: 3em;
+}
+nav.side img {
+	width: 10em;
+	height: 10em;
+}
+/*nav.side ul {
+	padding-left: 20px;
+}*/
+
+nav.side h3 {
+  -border-top: solid 1px #999999;
+  -padding-top: .2em;
+  margin: 1em 0 1em 0;
+}
+
+nav.side ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 1em 0 0 0;
+}
+nav.side ol {
+  padding-left: 1em;
+  margin: 1em 0 0 0;
+}
+
+nav.side li {
+  margin-bottom: 0.75em;
+  line-height: 1.25em;
+}
+
+div.body {
+	flex: 1;
+	-min-width: 300px;
+}
+
+/*============================================================================*/
+
+.card {
+	clear: both;
+	overflow: auto;
+	margin-bottom: 1em;
+}
+
+.card img {
+	float: left;
+	margin-right: 0.5em;
+	width: 5em;
+	height: 5em;
+}
+.card p {
+	margin: 0;
+}
+
+
+div.update {
+	color: #888;
+	margin-top: 1em;
+	font-size: 80%;
+	padding-top: 0.25em;
+	border-top: #666 1px solid;
+}
+div.update span {
+	font-style: italic;
+}
+
+/*============================================================================*/
+
+#playlist {
+	display: flex;
+	flex-wrap: wrap;
+	margin: -1em 0 1em -1em; /* gutter */
+}
+
+#playlist .item {
+	width: 50%;
+	padding: 1em 0 0 1em; /* gutter */
+	display: flex;
+	position: relative;
+}
+
+#playlist .item p {
+	margin: 0;
+}
+#playlist .item img {
+	width: 128px;
+	height: 128px;
+	flex: 1;
+}
+#playlist .item .data {
+	flex: 2;
+	padding-left: 0.5em;
+}
+#playlist .item .data p {
+	text-align: left;
+}
+
+#playlist .item.active .data {
+	background: blue;
+}
+
+#playlist audio {
+	width: 100%;
+	position: absolute;
+	left: 0;
+	top: 0.5em;
+	padding-left: 1em;
+}
+
+/*============================================================================*/
+
+td pre {
+  margin: 0; }
+
+td.sym {
+  text-align: right;
+  padding: 0.1em; }
+
+td.code {
+  padding: 0.1em 0.5em 0.1em 0.2em; }
+
+td.code pre, td.code code, pre.code, pre.code code {
+  display: inline;
+  padding: 0;
+  -background: #f2f2f2; }
+
+td.eqn {
+  -border-left: 1px solid #888;
+  -border-right: 1px solid #888;
+  width: 50%;
+  vertical-align: middle; }
+
+td.src {
+  width: 50%;
+  vertical-align: middle; }
+
+
+.display td, .display th {
+  padding: 0.1em 0.5em;
+  text-align: center;
+  vertical-align: middle; }
+
+.centre {
+  margin-left: auto;
+  margin-right: auto; }
+
+
+

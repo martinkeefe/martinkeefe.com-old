@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>Martin's Parametric Surfaces</title>
+		<link rel="stylesheet" href="css/main.css">
+		<script data-main="js/main" src="/js/lib/require.js"></script>
+	</head>
+	<body>
+		<div id="content">
+
+			<!-- SIDEBAR -->
+			<nav class="side">
+				<a href="/"><img src="/img/martian.png"></a>
+				<h3>Surfaces</h3>
+				<ul>
+					<li><a href="#intro">Introduction</a></li>
+					<li><a href="#torus">Torus</a></li>
+					<!--li><a href="/music.html">Music</a></li-->
+				</ul>
+			</nav>
+
+			<!-- BODY -->
+			<div class="body">
+				<h1>Parametric Surfaces</h1>
+
+				<div id="text"></div>
+
+				<figure id="ui"></figure>
+
+				<div class="update">Last update: 2016-09-19 <span>by</span> Martin Keefe, Copyright &copy; 2016 Martin Keefe</div>
+			</div>
+
+		</div>
+
+		<!-- SCRIPT -->
+		<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+		<script>
+			requirejs(['app/mathjax','app/parasurf-page']);
+		</script>
+
+	</body>
+</html>

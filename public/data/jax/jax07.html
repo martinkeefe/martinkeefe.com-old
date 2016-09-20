@@ -1,0 +1,37 @@
+<h2>7. \text and \mod</h2>
+<h3>7.1 The \text command</h3>
+<p>The main use of the command <tex>\text</tex> is for words or phrases in a
+display.</p>
+<table style="width: 100%;" class="centre">
+    <tr>
+        <td class="src"><pre><code>f_{[x_{i-1},x_i]} \text{ is monotonic,}
+\quad i = 1,\dots,c+1</code></pre></td>
+        <td class="eqn">\[f_{[x_{i-1},x_i]} \text{ is monotonic,}
+\quad i = 1,\dots,c+1\]</td>
+    </tr>
+</table>
+
+<h3>7.2. \mod and its relatives</h3>
+<p>Commands <tex>\mod</tex>, <tex>\bmod</tex>, <tex>\pmod</tex>, <tex>\pod</tex>
+deal with the special spacing conventions of “mod” notation. <tex>\mod</tex> and
+<tex>\pod</tex> are variants of <tex>\pmod</tex> preferred by some authors;
+<tex>\mod</tex> omits the parentheses, whereas <tex>\pod</tex> omits the “mod”
+and retains the parentheses.</p>
+<table style="width: 100%;" class="centre">
+    <tr>
+        <td class="src"><pre><code>\begin{gather}
+\gcd(n,m\bmod n)\\
+\quad x\equiv y\pmod b\\
+\quad x\equiv y\mod c\\
+\quad x\equiv y\pod d
+\end{gather}</code></pre></td>
+        <td class="eqn">\[
+\begin{gather}
+\gcd(n,m\bmod n)\\
+\quad x\equiv y\pmod b\\
+\quad x\equiv y\mod c\\
+\quad x\equiv y\pod d
+\end{gather}
+		\]</td>
+    </tr>
+</table>

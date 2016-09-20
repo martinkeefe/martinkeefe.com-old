@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>Monday Night Martin Stuff</title>
+		<link rel="stylesheet" href="css/main.css">
+		<script data-main="js/main" src="/js/lib/require.js"></script>
+	</head>
+	<body>
+
+		<div id="content">
+
+			<!-- SIDEBAR -->
+			<nav class="side">
+				<a href="/"><img src="img/martian.png"></a>
+				<h3>Monday Night Martin</h3>
+				<ul>
+					<li><a href="mnm.html#08">#08: Claudia's Birthday</a> (September 2008)</li>
+					<li><a href="mnm.html#09">#09: Minimalism and Modern Classical</a> (October 2008)</li>
+					<li><a href="mnm.html#11">#11: Geof's Birthday</a> (January 2009)</li>
+					<li><a href="mnm.html#14">#14: '70s Albums</a> (April 2009)</li>
+					<li><a href="mnm.html#15">#15: Astronomy Night</a> (May 2009)</li>
+					<li><a href="mnm.html#18">#18: 1969, the Shape of Things to Come</a> (October 2009)</li>
+					<li><a href="mnm.html#22">#22: 2009 Retrospective</a> (February 2010)</li>
+					<li><a href="mnm.html#23">#23: Travel Broadens the Mind</a> (March 2010)</li>
+					<li><a href="mnm.html#25">#25: Screen Gems</a> (June 2010)</li>
+					<li><a href="mnm.html#27">#27: Cloak &amp; Dagger, Music for Secret Agents</a> (August 2010)</li>
+					<li><a href="mnm.html#29">#29: The Life Aquatic</a> (November 2010)</li>
+					<li><a href="mnm.html#31">#31: The Hazards of Love</a> (February 2011)</li>
+					<li><a href="mnm.html#33">#33: Genetic Drift</a> (July 2013)</li>
+					<li><a href="mnm.html#34">#34: What Becomes of the Brokenhearted</a> (November 2013)</li>
+				</ul>
+			</nav>
+
+			<!-- BODY -->
+			<div class="body">
+				<h1 id="mnm">Monday Night Martin</h1>
+				<h2 id="title"></h2>
+				<p id="intro"></p>
+				<div id="playlist">
+				</div>
+				<div class="update">Last update: 2016-09-17 <span>by</span> Martin Keefe, Copyright &copy; 2016 Martin Keefe</div>
+			</div>
+
+		</div>
+
+		<!-- TEMPLATE -->
+		<script type="text/template" id="playlist-item">
+			<div class="item">
+				<img src="http://s3-eu-west-1.amazonaws.com/raiment57/mnm<%= mnm_num %>/<%= trk_num %>.jpg">
+				<div class="data">
+					<p><big><%= trk_num %></big></p>
+					<p><b><%= art_name %></b></p>
+					<p>"<%= trk_name %>"</p>
+					<p><i><%= alb_name %></i>, <%= alb_year %></p>
+				</div>
+			</div>
+		</script>
+
+		<!-- SCRIPT -->
+		<script>
+			requirejs(['app/mnm-page']);</script>
+	</body>
+</html>

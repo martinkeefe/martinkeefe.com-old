@@ -1,0 +1,84 @@
+<h2>2. Inline math formulas and displayed equations</h2>
+<table style="width: 100%;" class="centre">
+    <caption>Table 1: Multi-line equations and equation groups</caption>
+    <tr>
+        <td class="src"><pre><code>\begin{equation}\label{2.1}
+\begin{split}
+a =& b+c-d\\
+   &{}+e-f\\
+  =& g+h\\
+  =& i
+\end{split}
+\end{equation}</code></pre></td>
+        <td class="eqn">\[
+            \begin{equation}
+            \begin{split}
+            a =& b+c-d\\
+               &{}+e-f\\
+              =& g+h\\
+              =& i
+            \end{split}
+            \end{equation}
+        \]</td>
+    </tr>
+    <tr>
+        <td class="src"><pre><code>\begin{multline}
+a+b+c+d+e+f\\
++i+j+k+l+m+n
+\end{multline}</code></pre></td>
+        <td class="eqn">\[
+\begin{multline}
+a+b+c+d+e+f\\
++i+j+k+l+m+n
+\end{multline}
+        \]</td>
+    </tr>
+    <tr>
+        <td class="src"><pre><code>\begin{gather}
+a_1=b_1+c_1\\
+a_2=b_2+c_2-d_2+e_2
+\end{gather}</code></pre></td>
+        <td class="eqn">\[
+\begin{gather}
+a_1=b_1+c_1\\
+a_2=b_2+c_2-d_2+e_2
+\end{gather}
+        \]</td>
+    </tr>
+    <tr>
+        <td class="src"><pre><code>\begin{align}
+a_1& =b_1+c_1\\
+a_2& =b_2+c_2-d_2+e_2
+\end{align}</code></pre></td>
+        <td class="eqn">\[
+\begin{align}
+a_1& =b_1+c_1\\
+a_2& =b_2+c_2-d_2+e_2
+\end{align}
+        \]</td>
+    </tr>
+    <tr>
+        <td class="src"><pre><code>\begin{align}
+a_{11}& =b_{11}&
+a_{12}& =b_{12}\\
+a_{21}& =b_{21}&
+a_{22}& =b_{22}+c_{22}
+\end{align}</code></pre></td>
+        <td class="eqn">\[
+\begin{align}
+a_{11}& =b_{11}&
+a_{12}& =b_{12}\\
+a_{21}& =b_{21}&
+a_{22}& =b_{22}+c_{22}
+\end{align}
+        \]</td>
+    </tr>
+</table>
+<p class="note">Note 1. The <tex>split</tex> environment is something of a special case. 
+It is a subordinate environment that can be used as the contents of an equation 
+environment or the contents of one "line" in a multiple-equation structure such 
+as <tex>align</tex> or <tex>gather</tex>.</p>
+<p class="note">Note 2. The <tex>eqnarray</tex> and <tex>eqnarray*</tex> environments 
+described in [Lamport] are not recommended because they produce inconsistent 
+spacing of the equal signs and make no attempt to prevent overprinting of the
+equation body and equation number.</p>

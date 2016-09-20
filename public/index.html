@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>Martin's Stuff</title>
+		<link rel="stylesheet" href="/css/main.css">
+		<script data-main="js/main" src="/js/lib/require.js"></script>
+	</head>
+	<body>
+
+		<div id="content">
+
+			<!-- SIDEBAR -->
+			<nav class="side">
+				<img src="/img/martian.png">
+				<h3>Martin's Stuff</h3>
+				<ul>
+					<li><a href="/maths.html">Maths</a></li>
+					<li><a href="/mnm.html#09">Music</a></li>
+					<!--li><a href="/works.html">Works</a></li-->
+				</ul>
+			</nav>
+
+			<!-- BODY -->
+			<div class="body" id="screen">
+				<canvas id="shadebob"></canvas>
+				<div class="update">Copyright &copy; 2016 Martin Keefe</div>
+			</div>
+
+		</div>
+
+		<!-- SCRIPT -->
+		<script>
+			requirejs(['app/shadebob'], function(sb) {
+				sb.resize();
+			});
+		</script>
+
+	</body>
+</html>

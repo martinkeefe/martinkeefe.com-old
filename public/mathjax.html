@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>Martin's MathJax Guide</title>
+		<link rel="stylesheet" href="/css/main.css">
+		<script data-main="js/main" src="/js/lib/require.js"></script>
+	</head>
+	<body>
+		<div id="content">
+
+			<!-- SIDEBAR -->
+			<nav class="side">
+				<a href="/"><img src="/img/martian.png"></a>
+				<h3>MathJax Guide</h3>
+				<ol>
+					<li><a href="#01">Introduction</a></li>
+					<li><a href="#02">Inline math formulas and displayed equations</a></li>
+					<li><a href="#03">Math symbols and math fonts</a></li>
+					<li><a href="#04">Notations</a></li>
+					<li><a href="#05">Fractions and related constructions</a></li>
+					<li><a href="#06">Delimiters</a></li>
+					<li><a href="#07">\text and \mod</a></li>
+					<li><a href="#08">Integrals and sums</a></li>
+					<li><a href="#09">Changing the size of elements in a formula</a></li>
+				</ol>
+			</nav>
+
+			<!-- BODY -->
+			<div class="body">
+				<h1>MathJax Guide</h1>
+
+				<div id="text"></div>
+
+				<div class="update">Last update: 2016-09-18 <span>by</span> Martin Keefe, Copyright &copy; 2016 Martin Keefe</div>
+			</div>
+
+		</div>
+
+		<!-- SCRIPT -->
+		<script src="/js/lib/highlight/highlight.js"></script>
+	    <script src="/js/lib/highlight/languages/tex.js"></script>
+		<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+		<script>requirejs(['app/mathjax-page']);</script>
+
+	</body>
+</html>
