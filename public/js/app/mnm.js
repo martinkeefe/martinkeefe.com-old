@@ -2,9 +2,6 @@ define(function(require, exports, module) {
     var $ = require('zepto');
     var _ = require('lodash');
 
-    var playlist = $('#playlist');
-    var template = _.template($('#playlist-item').html());
-
     var mnm_num;
     var items;
     var index;
@@ -49,6 +46,9 @@ define(function(require, exports, module) {
     }
 
     function render(data) {
+	    var playlist = $('#playlist');
+	    var template = _.template($('#playlist-item').html());
+
     	var recs = data.split('\n');
     	var rec0 = recs[0].split('\t');
 
@@ -81,22 +81,15 @@ define(function(require, exports, module) {
 		play();
     }
 
-	function get_data() {
+	return function(num) {
+		mnm_num = num;
 	    $.ajax({
   			type: 'GET',
-  			url: 'data/mnm/mnm'+mnm_num+'.csv',
+  			url: 'data/mnm/mnm'+num+'.csv',
   			success: render,
   			error: function(xhr, type){
   				console.error(xhr);
   			},
   		});
 	};
-
-	$(window).on('hashchange', function(){
-		mnm_num = window.location.hash.substr(1,2);
-		get_data();
-	});
-
-	// Manually trigger a hashchange to start the app.
-	$(window).trigger('hashchange');
 });

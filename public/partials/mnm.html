@@ -1,0 +1,45 @@
+
+<!-- SIDEBAR -->
+<nav class="side">
+	<a href="/"><img src="img/martian.png"></a>
+	<h3>Monday Night Martin</h3>
+	<ul>
+		<li><a href="#music/mnm?08">#08: Claudia&rsquo;s Birthday</a> (September 2008)</li>
+		<li><a href="#music/mnm?09">#09: Minimalism and Modern Classical</a> (October 2008)</li>
+		<li><a href="#music/mnm?11">#11: Geof&rsquo;s Birthday</a> (January 2009)</li>
+		<li><a href="#music/mnm?14">#14: &rsquo;70s Albums</a> (April 2009)</li>
+		<li><a href="#music/mnm?15">#15: Astronomy Night</a> (May 2009)</li>
+		<li><a href="#music/mnm?18">#18: 1969, the Shape of Things to Come</a> (October 2009)</li>
+		<li><a href="#music/mnm?22">#22: 2009 Retrospective</a> (February 2010)</li>
+		<li><a href="#music/mnm?23">#23: Travel Broadens the Mind</a> (March 2010)</li>
+		<li><a href="#music/mnm?25">#25: Screen Gems</a> (June 2010)</li>
+		<li><a href="#music/mnm?27">#27: Cloak &amp; Dagger, Music for Secret Agents</a> (August 2010)</li>
+		<li><a href="#music/mnm?29">#29: The Life Aquatic</a> (November 2010)</li>
+		<li><a href="#music/mnm?31">#31: The Hazards of Love</a> (February 2011)</li>
+		<li><a href="#music/mnm?33">#33: Genetic Drift</a> (July 2013)</li>
+		<li><a href="#music/mnm?34">#34: What Becomes of the Brokenhearted</a> (November 2013)</li>
+	</ul>
+</nav>
+
+<!-- BODY -->
+<div class="body">
+	<h1 id="mnm">Monday Night Martin</h1>
+	<h2 id="title"></h2>
+	<p id="intro"></p>
+	<div id="playlist">
+	</div>
+	<div class="update">Last update: 2016-09-17 <span>by</span> Martin Keefe, Copyright &copy; 2016 Martin Keefe</div>
+</div>
+
+<!-- TEMPLATE -->
+<script type="text/template" id="playlist-item">
+	<div class="item">
+		<img src="http://s3-eu-west-1.amazonaws.com/raiment57/mnm<%= mnm_num %>/<%= trk_num %>.jpg">
+		<div class="data">
+			<p><big><%= trk_num %></big></p>
+			<p><b><%= art_name %></b></p>
+			<p>&ldquo;<%= trk_name %>&rdquo;</p>
+			<p><i><%= alb_name %></i>, <%= alb_year %></p>
+		</div>
+	</div>
+</script>

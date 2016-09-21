@@ -17,14 +17,15 @@ body {
 	font-size: 110%;
 }
 
-a, a:visited {
+a, a:visited, span.link {
 	color: #FFF;
 	text-decoration: none;
 }
-a:hover {
+a:hover, span.link:hover {
   text-decoration: underline;
   color: #FFF;
 }
+
 
 /*============================================================================*/
 
