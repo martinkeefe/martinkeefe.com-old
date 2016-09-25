@@ -12,6 +12,9 @@ requirejs.config({
     shim: {
         'zepto': {
         	exports: '$'
+        },
+        'three': {
+            exports: 'THREE'
         }
     },
 });

@@ -1,5 +1,9 @@
 @import 'https://fonts.googleapis.com/css?family=Lato';
 @import 'https://fonts.googleapis.com/css?family=Alegreya:400,400i,700,700i,900,900i&subset=latin-ext';
+@import 'https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,400i,700,700i&subset=cyrillic,greek,latin-ext';
+
+@import 'https://fonts.googleapis.com/css?family=Noto+Serif:400,400i,700,700i&subset=cyrillic,greek,latin-ext';
+@import 'https://fonts.googleapis.com/css?family=Tinos:400,400i,700,700i&subset=cyrillic,greek,latin-ext';
 
 @import url(hilite.css);
 
@@ -13,8 +17,14 @@ body {
 	color: #BBB;
 	background-color: #334;
 	-font-family: Georgia;
-	font-family: 'Alegreya', sans-serif;
-	font-size: 110%;
+	-font-family: 'Alegreya', 'Noto Serif', serif;
+	font-family: Tinos, serif;
+	font-size: 16px;
+}
+
+pre, code {
+	font-family: 'Ubuntu Mono', monospace;
+	font-size: 95%;
 }
 
 a, a:visited, span.link {
@@ -34,25 +44,32 @@ h1, h2, h3, h4, h5, h6 {
 	font-weight: 400;
 	letter-spacing: .15em;
 	text-transform: uppercase;
-	margin: 2em 0 1.5em 0;
+	margin: 2em 0 1em 0;
 	color: #8CF;
+	color: #AAF;
 }
 
 h1, h2, h3 {
 	clear: both;
 }
 
-h1 {font-size: 1.5em; padding-top: 1em; border-top: #666 1px solid; margin-top: 0;}
-h2 {font-size: 1.0em; margin-top: 2em; }
-h3 {font-size: 0.9em; margin-top: 3em; }
+h1 {font-size: 1.7em; padding-top: 2.45em; -border-top: #666 1px solid; margin-top: 0;}
+h2 {font-size: 1.1em; margin-top: 2.5em; }
+h3 {font-size: 0.95em; margin-top: 3em; }
 h4 {font-size: 0.85em; margin-top: 3em; text-transform: none;}
 
 p {
 	text-align: justify;
 	-line-height: 1.6em;
+	font-size: 18px;
 }
 p.note {
 	font-size: 0.9em;
+}
+
+hr {
+	border-color: #666;
+	border-style: solid;
 }
 
 /*============================================================================*/
@@ -76,6 +93,10 @@ nav.side img {
 	padding-left: 20px;
 }*/
 
+nav.side h2 {
+  margin: 1em 0 1em 0;
+}
+
 nav.side h3 {
   -border-top: solid 1px #999999;
   -padding-top: .2em;
@@ -83,8 +104,8 @@ nav.side h3 {
 }
 
 nav.side ul {
-  list-style-type: none;
-  padding: 0;
+  -list-style-type: none;
+  padding-left: 1em;
   margin: 1em 0 0 0;
 }
 nav.side ol {
@@ -93,7 +114,7 @@ nav.side ol {
 }
 
 nav.side li {
-  margin-bottom: 0.75em;
+  margin-bottom: 0.5em;
   line-height: 1.25em;
 }
 
@@ -213,4 +234,29 @@ td.src {
   margin-right: auto; }
 
 
+/*============================================================================*/
 
+.ui {
+	font-family: 'Lato', sans-serif;
+	font-weight: 400;
+	letter-spacing: .1em;
+	font-size: 80%;
+}
+
+.ui-title {
+	font-family: 'Lato', sans-serif;
+	font-weight: 400;
+	letter-spacing: .15em;
+	color: #AAF;
+	text-transform: uppercase;
+	font-size: 70%;
+	padding-top: 1em;
+}
+
+.dhtmlxslider_material .dhxsl_runner {
+	background-color: #88F;
+}
+
+.extra-0 { color: #0AA; }
+.extra-1 { color: #A0A; }
+.extra-2 { color: #AA0; }

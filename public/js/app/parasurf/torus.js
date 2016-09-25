@@ -1,7 +1,7 @@
 define(function(require, exports, module) {
+	var ps = require('app/parasurf');
 
-
-	return function(u, v, p) {
+	return function() {
 	    var PI = Math.PI,
 	        cos = Math.cos,
 	        sin = Math.sin;
@@ -15,9 +15,9 @@ define(function(require, exports, module) {
 	                    x = cos(u) * (R + r * cos(v)),
 	                    y = sin(u) * (R + r * cos(v)),
 	                    z = r * sin(v);
-	                return [x, y, z];
+                    return {xyz: [x,y,z], uv0: [u,v,0]};
 	            }
-	            return calcParametricGeometry(func, ur, vr, t, ff);
+	            return ps.calcParametricGeometry(func, ur, vr, t, ff);
 	        },
 	        domain: [
 	            {name:'u', min:-PI, max:PI, steps:60, pi:true},

@@ -20,11 +20,6 @@ define(function(require, exports, module) {
         elem.innerHTML = html;
     }
 
-    MathJax.Hub.Config({
-      extensions: ["tex2jax.js"],
-      "HTML-CSS": { scale: 100, availableFonts: [], webFont: "TeX"}
-    });
-
     return function(num, render) {
         render('jax-text', 'jax/jax' + num, function() {
             $('div.syms').each(syms);
