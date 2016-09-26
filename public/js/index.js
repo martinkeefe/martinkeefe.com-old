@@ -91,12 +91,13 @@ routes['maths/parasurf'] = function(shape) {
 			if (shape !== 'intro') {
 				requirejs(['app/parasurf'], function(ps) {
 					ps.parasurf('ps-shape', shape);
-					//console.log("Typesetting...")
 				    MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
-				    //MathJax.Hub.Queue(function() {console.log("...done.")});
 				});
 			} else {
-			    MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+				requirejs(['app/parasurf'], function(ps) {
+					ps.parasurf('ps-shape', 'cone');
+				    MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+				});
 			}
 		});
 	});

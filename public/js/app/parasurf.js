@@ -6,6 +6,7 @@ define(function(require, exports, module) {
     var ui = require('app/ui');
 
 	var shapes = {
+		'cone': require('app/parasurf/cone'),
 		'sphere': require('app/parasurf/sphere'),
 		'torus': require('app/parasurf/torus'),
 		'elliptic-torus': require('app/parasurf/elliptic-torus'),
