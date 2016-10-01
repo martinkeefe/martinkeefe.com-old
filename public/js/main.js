@@ -15,7 +15,10 @@ requirejs.config({
         },
         'three': {
             exports: 'THREE'
-        }
+        },
+        //'xgui': {
+        //    exports: 'xgui'
+        //},
     },
 });
 
@@ -29,3 +32,4 @@ requirejs.config({
 //	$('#content').html('<div id="screen"><canvas id="shadebob"></canvas></div>');
 //	sb.resize();
 //});
+

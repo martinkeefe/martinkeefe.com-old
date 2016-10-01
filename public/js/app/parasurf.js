@@ -13,7 +13,7 @@ define(function(require, exports, module) {
 		'limpet-torus': require('app/parasurf/limpet-torus'),
 		'supertoroid': require('app/parasurf/supertoroid'),
 		'mobius': require('app/parasurf/mobius'),
-		'boy-1': require('app/parasurf/boy-1'),
+		'boys-1': require('app/parasurf/boys-1'),
 	};
 
 	function lerp(a, b, t) {
@@ -294,7 +294,7 @@ define(function(require, exports, module) {
 		var root = new THREE.Object3D();
 		var group;
 
-		var animate = true;
+		var animate = false;
 		var show_wires = true;
 		var show_faces = true;
 		var show_axes = true;
@@ -304,7 +304,7 @@ define(function(require, exports, module) {
 		function setup(canvas, width, height) {
 			renderer = new THREE.WebGLRenderer({antialias: true, canvas: canvas, stencil: false});
 			renderer.setSize(width, height);
-			renderer.setClearColor(0x333344); //0xECEADF); #334
+			renderer.setClearColor(0x363241); // 10PB 2/2
 
 			camera = new THREE.PerspectiveCamera( 75, width / height, 0.1, 1000 );
 			camera.position.z = 5;
@@ -314,9 +314,9 @@ define(function(require, exports, module) {
 			controls = new THREE.TrackballControls( camera, renderer.domElement );
 
 			var nudge = Math.PI / 8;
-			root.rotation.x = 0;
-			root.rotation.y = nudge;
-			root.rotation.z = 0;
+			root.rotation.x = -Math.PI/4;
+			root.rotation.y = 0;
+			root.rotation.z = Math.PI/4;
 
 			makeScene();
 		}
@@ -329,7 +329,7 @@ define(function(require, exports, module) {
 				body_material = new THREE.MeshNormalMaterial( { side:THREE.DoubleSide,
 							polygonOffset: true, polygonOffsetFactor: 1, polygonOffsetUnits: 1 } );
 			} else {
-				body_material = new THREE.MeshLambertMaterial( { side:THREE.DoubleSide, color: 0x9999CC,
+				body_material = new THREE.MeshLambertMaterial( { side:THREE.DoubleSide, color: 0xADA7E4, // 10PB 7/8
 							polygonOffset: true, polygonOffsetFactor: 1, polygonOffsetUnits: 1 } );
 
 				var lights = [];

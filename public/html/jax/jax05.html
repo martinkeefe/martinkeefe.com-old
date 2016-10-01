@@ -1,7 +1,7 @@
 <h2>5. Fractions and related constructions</h2>
 <h3>5.1. The \frac, \dfrac, and \tfrac commands</h3>
-<p>The <tex>\frac</tex> command takes two arguments — numerator and denominator — 
-and typesets them in normal fraction form. Use <tex>\dfrac</tex> or <tex>\tfrac</tex> 
+<p>The <tex>\frac</tex> command takes two arguments — numerator and denominator —
+and typesets them in normal fraction form. Use <tex>\dfrac</tex> or <tex>\tfrac</tex>
 to overrule MathJax’s guess about the proper size to use for the fraction’s
 contents (t = text-style, d = display-style).</p>
 <table style="width: 100%;" class="centre">
@@ -21,7 +21,7 @@ contents (t = text-style, d = display-style).</p>
 </table>
 
 <h3>5.2. The \binom, \dbinom, and \tbinom commands</h3>
-<p>For binomial expressions such as \(\binom{n}{k}\) there are <tex>\binom</tex>, 
+<p>For binomial expressions such as \(\binom{n}{k}\) there are <tex>\binom</tex>,
 <tex>\dbinom</tex> and <tex>\tbinom</tex> commands:</p>
 <table style="width: 100%;" class="centre">
     <tr>
@@ -31,17 +31,17 @@ contents (t = text-style, d = display-style).</p>
 </table>
 
 <h3>5.3. The \genfrac command</h3>
-<p>The capabilities of <tex>\frac</tex>, <tex>\binom</tex>, and their variants 
-are subsumed by a generalized fraction command <tex>\genfrac</tex> with six 
-arguments. The last two correspond to <tex>\frac</tex>’s numerator and denominator; 
-the ﬁrst two are optional delimiters (as seen in <tex>\binom</tex>); the third 
+<p>The capabilities of <tex>\frac</tex>, <tex>\binom</tex>, and their variants
+are subsumed by a generalized fraction command <tex>\genfrac</tex> with six
+arguments. The last two correspond to <tex>\frac</tex>’s numerator and denominator;
+the ﬁrst two are optional delimiters (as seen in <tex>\binom</tex>); the third
 is a line thickness override (<tex>\binom</tex> uses this to set the fraction
-line thickness to 0 pt — i.e., invisible); and the fourth argument is a mathstyle 
-override: integer values 0–3 select respectively <tex>\displaystyle</tex>, 
-<tex>\textstyle</tex>, <tex>\scriptstyle</tex>, and <tex>\scriptscriptstyle</tex>. 
+line thickness to 0 pt — i.e., invisible); and the fourth argument is a mathstyle
+override: integer values 0–3 select respectively <tex>\displaystyle</tex>,
+<tex>\textstyle</tex>, <tex>\scriptstyle</tex>, and <tex>\scriptscriptstyle</tex>.
 If the third argument is left empty, the line thickness defaults to ‘normal’.</p>
 <pre><code>\genfrac{<i>left-delim</i>}{<i>right-delim</i>}{<i>thickness</i>}{<i>mathstyle</i>}{<i>numerator</i>}{<i>denominator</i>}</code></pre>
-<p>To illustrate, here is how <tex>\frac</tex>, <tex>\tfrac</tex>, and 
+<p>To illustrate, here is how <tex>\frac</tex>, <tex>\tfrac</tex>, and
 <tex>\binom</tex> might be deﬁned.</p>
 <table style="width: 100%;" class="centre">
     <tr>
@@ -68,6 +68,6 @@ If the third argument is left empty, the line thickness defaults to ‘normal’
 }}}\]</td>
     </tr>
 </table>
-<p>This produces better-looking results than straightforward use of <tex>\frac</tex>. 
-Left or right placement of any of the numerators is accomplished by using 
+<p>This produces better-looking results than straightforward use of <tex>\frac</tex>.
+Left or right placement of any of the numerators is accomplished by using
 <tex>\cfrac[l]</tex> or <tex>\cfrac[r]</tex> instead of <tex>\cfrac</tex>.</p>

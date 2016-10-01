@@ -27,11 +27,11 @@ define(function(require, exports, module) {
                     {name:'v', min:-1/2, max:1/2, steps:12},
                 ],
                 param: [
-                    {name:'r', min:0, max:4, step:0.1, init:1},
+                    {name:'r', min:0, max:4, step:0.1, init:2},
                     {name:'w', min:0, max:4, step:0.1, init:1},
                 ],
                 view: {
-                    distance: 2.5,
+                    distance: 5,
                 },
             },
             {

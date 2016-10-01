@@ -1,9 +1,12 @@
 <h2>3. Math symbols and math fonts</h2>
+
 <h3>3.1. Classes of math symbols</h3>
-<p>The symbols in a math formula fall into different classes that correspond more 
-or less to the part of speech each symbol would have if the formula were expressed 
-in words. Certain spacing and positioning cues are traditionally used for the 
+
+<p>The symbols in a math formula fall into different classes that correspond more
+or less to the part of speech each symbol would have if the formula were expressed
+in words. Certain spacing and positioning cues are traditionally used for the
 different symbol classes to increase the readability of formulas.</p>
+
 <table class="centre display">
     <tr>
         <th>Class number</th>
@@ -20,18 +23,22 @@ different symbol classes to increase the readability of formulas.</p>
     <tr><td>6</td><td>Pun</td><td>postfix/punctuation</td><td>\(.\:,\:;\:!\)</td></tr>
 </table>
 
-<p class="note">Note 1. The distinction in \(\TeX\) between class 0 and an additional class 7 
+<p class="note">Note 1. The distinction in \(\TeX\) between class 0 and an additional class 7
 has to do only with font selection issues and is immaterial here.</p>
-<p class="note">Note 2. Symbols of class Bin, notably the minus sign \(-\), are automatically 
+
+<p class="note">Note 2. Symbols of class Bin, notably the minus sign \(-\), are automatically
 coerced to class 0 (no space) if they do not have a suitable left operand.</p>
-<p>The spacing for a few symbols follows tradition instead of the general rule: 
-although \(/\) is (semantically speaking) of class 2, we write \(k/2\) with no 
-space around the slash rather than \(k\;/\;2\). And compare <tex>p|q </tex> 
+
+<p>The spacing for a few symbols follows tradition instead of the general rule:
+although \(/\) is (semantically speaking) of class 2, we write \(k/2\) with no
+space around the slash rather than \(k\;/\;2\). And compare <tex>p|q </tex>
 \(p|q\) (no space) with <tex>p\mid q </tex> \(p\mid q\) (class-3 spacing).</p>
 
 <h3>3.2. Some symbols intentionally omitted here</h3>
-<p>The following math symbols are intentionally omitted from this discussion 
+
+<p>The following math symbols are intentionally omitted from this discussion
 because they are superseded by equivalent symbols.</p>
+
 <table class="centre">
     <tr><td style="text-align: right"><tex>\Box</tex>,</td><td>see <tex>\square</tex> \(\square\)</td></tr>
     <tr><td style="text-align: right"><tex>\Diamond</tex>,</td><td>see <tex>\lozenge</tex> \(\lozenge\)</td></tr>
@@ -44,12 +51,15 @@ because they are superseded by equivalent symbols.</p>
 </table>
 
 <h3>3.3. Latin letters and Arabic numerals</h3>
-<p>The Latin letters are simple symbols, class 0. The default font for them in 
+
+<p>The Latin letters are simple symbols, class 0. The default font for them in
 math formulas is italic.</p>
 \[A\:B\:C\:D\:E\:F\:G\:H\:I\:J\:K\:L\:M\:N\:O\:P\:Q\:R\:S\:T\:U\:V\:W\:X\:Y\:Z\]
 \[a\:b\:c\:d\:e\:f\:g\:h\:i\:j\:k\:l\:m\:n\:o\:p\:q\:r\:s\:t\:u\:v\:w\:x\:y\:z\]
-<p>When adding an accent to an i or j in math, dotless variants can be obtained 
+
+<p>When adding an accent to an i or j in math, dotless variants can be obtained
 with <tex>\imath</tex> and <tex>\jmath</tex>:</p>
+
 <div class="syms">
 \imath _ \jmath _ \hat{\jmath}
 </div>
@@ -57,82 +67,82 @@ with <tex>\imath</tex> and <tex>\jmath</tex>:</p>
 \[0\:1\:2\:3\:4\:5\:6\:7\:8\:9\]
 
 <h3>3.4. Greek letters</h3>
-<p>Like the Latin letters, the Greek letters are simple symbols, class 0. For 
-obscure historical reasons, the default font for lowercase Greek letters in math 
-formulas is italic while the default font for capital Greek letters is upright/roman. 
-(In other fields such as physics and chemistry, however, the typographical traditions 
-are somewhat different.) The capital Greek letters not present in this list are the 
-letters that have the same appearance as some Latin letter: A for Alpha, B for Beta, 
-and so on. In the list of lowercase letters there is no omicron because it would 
-be identical in appearance to Latin o. In practice, the Greek letters that have 
+<p>Like the Latin letters, the Greek letters are simple symbols, class 0. For
+obscure historical reasons, the default font for lowercase Greek letters in math
+formulas is italic while the default font for capital Greek letters is upright/roman.
+(In other fields such as physics and chemistry, however, the typographical traditions
+are somewhat different.) The capital Greek letters not present in this list are the
+letters that have the same appearance as some Latin letter: A for Alpha, B for Beta,
+and so on. In the list of lowercase letters there is no omicron because it would
+be identical in appearance to Latin o. In practice, the Greek letters that have
 Latin look-alikes are seldom used in math formulas, to avoid confusion.</p>
 <div class="syms">
-\Gamma      \alpha      \xi         \digamma        
-\Delta      \beta       \pi         \varepsilon     
-\Lambda     \gamma      \rho        \varkappa       
-\Phi        \delta      \sigma      \varphi         
-\Pi         \epsilon    \tau        \varpi          
-\Psi        \zeta       \upsilon    \varrho         
-\Sigma      \eta        \phi        \varsigma       
-\Theta      \theta      \chi        \vartheta       
-\Upsilon    \iota       \psi                        
-\Xi         \kappa      \omega                      
-\Omega      \lambda                                 
-_           \mu                                     
-_           \nu                                     
+\Gamma      \alpha      \xi         \digamma
+\Delta      \beta       \pi         \varepsilon
+\Lambda     \gamma      \rho        \varkappa
+\Phi        \delta      \sigma      \varphi
+\Pi         \epsilon    \tau        \varpi
+\Psi        \zeta       \upsilon    \varrho
+\Sigma      \eta        \phi        \varsigma
+\Theta      \theta      \chi        \vartheta
+\Upsilon    \iota       \psi
+\Xi         \kappa      \omega
+\Omega      \lambda
+_           \mu
+_           \nu
 </div>
 
 <h3>3.5. Other alphabetic symbols</h3>
 <p>These are also class 0.</p>
 <div class="syms">
-\aleph  \complement \hslash     \circledS   \Im 
-\beth   \ell        \mho        \Bbbk       \Re 
-\daleth \eth        \partial    \Finv           
-\gimel  \hbar       \wp         \Game           
+\aleph  \complement \hslash     \circledS   \Im
+\beth   \ell        \mho        \Bbbk       \Re
+\daleth \eth        \partial    \Finv
+\gimel  \hbar       \wp         \Game
 </div>
 
 <h3>3.6. Miscellaneous simple symbols</h3>
-<p>These symbols are also of class 0 (ordinary) which means they do not have any 
+<p>These symbols are also of class 0 (ordinary) which means they do not have any
 built-in spacing.</p>
 <div class="syms">
-\#                  \clubsuit       \lozenge        \square       
-\&                  \diagdown       \measuredangle  \surd         
-\angle              \diagup         \nabla          \top          
-\backprime          \diamondsuit    \natural        \triangle     
-\bigstar            \emptyset       \neg            \triangledown 
-\blacklozenge       \exists         \nexists        \varnothing   
-\blacksquare        \flat           \prime                        
-\blacktriangle      \forall         \sharp                        
-\blacktriangledown  \heartsuit      \spadesuit                    
-\bot                \infty          \sphericalangle               
+\#                  \clubsuit       \lozenge        \square
+\&                  \diagdown       \measuredangle  \surd
+\angle              \diagup         \nabla          \top
+\backprime          \diamondsuit    \natural        \triangle
+\bigstar            \emptyset       \neg            \triangledown
+\blacklozenge       \exists         \nexists        \varnothing
+\blacksquare        \flat           \prime
+\blacktriangle      \forall         \sharp
+\blacktriangledown  \heartsuit      \spadesuit
+\bot                \infty          \sphericalangle
 </div>
-<p class="note">Note 1. A common mistake in the use of the symbols \(\square\) 
-and \(\#\) is to try to make them serve as binary operators or relation symbols 
-without using a properly defined math symbol command. If you merely use the 
-existing commands <tex>\square</tex> or <tex>\#</tex> the inter-symbol 
+<p class="note">Note 1. A common mistake in the use of the symbols \(\square\)
+and \(\#\) is to try to make them serve as binary operators or relation symbols
+without using a properly defined math symbol command. If you merely use the
+existing commands <tex>\square</tex> or <tex>\#</tex> the inter-symbol
 spacing will be incorrect because those commands produce a class-0 symbol.</p>
 <p class="note">Note 2. Synonyms: \(\neg\) <tex>\lnot</tex></p>
 
 <h3>3.7. Binary operator symbols</h3>
 <div class="syms">
 *                   \cdot           \doublebarwedge     \smallsetminus
-+                   \centerdot      \gtrdot             \sqcap        
--                   \circ           \intercal           \sqcup        
-\amalg              \circledast     \leftthreetimes     \star         
-\ast                \circledcirc    \lessdot            \times        
-\barwedge           \circleddash    \ltimes             \triangleleft 
++                   \centerdot      \gtrdot             \sqcap
+-                   \circ           \intercal           \sqcup
+\amalg              \circledast     \leftthreetimes     \star
+\ast                \circledcirc    \lessdot            \times
+\barwedge           \circleddash    \ltimes             \triangleleft
 \bigcirc            \cup            \mp                 \triangleright
-\bigtriangledown    \Cup            \odot               \uplus        
-\bigtriangleup      \curlyvee       \ominus             \vee          
-\boxdot             \curlywedge     \oplus              \veebar       
-\boxminus           \dagger         \oslash             \wedge        
-\boxplus            \ddagger        \otimes             \wr           
-\boxtimes           \diamond        \pm                               
-\bullet             \div            \rightthreetimes                  
-\cap                \divideontimes  \rtimes                           
-\Cap                \dotplus        \setminus                         
+\bigtriangledown    \Cup            \odot               \uplus
+\bigtriangleup      \curlyvee       \ominus             \vee
+\boxdot             \curlywedge     \oplus              \veebar
+\boxminus           \dagger         \oslash             \wedge
+\boxplus            \ddagger        \otimes             \wr
+\boxtimes           \diamond        \pm
+\bullet             \div            \rightthreetimes
+\cap                \divideontimes  \rtimes
+\Cap                \dotplus        \setminus
 </div>
-<p class="note">Synonyms: \(\land\) <tex>\land</tex>, \(\lor\) <tex>\lor</tex>, 
+<p class="note">Synonyms: \(\land\) <tex>\land</tex>, \(\lor\) <tex>\lor</tex>,
 \(\doublecup\) <tex>\doublecup</tex>, \(\doublecap\) <tex>\doublecap</tex></p>
 
 <h3>3.8. Relation symbols: \(<\:=\:>\:\succ\:\sim\) and variants</h3>
@@ -233,11 +243,11 @@ spacing will be incorrect because those commands produce a class-0 symbol.</p>
 |        _   :        _  \dotsc   _  \ddots
 ,        _   !        _  \dotsi   _  \vdots
 </div>
-<p class="note">Note 1. The <tex>:</tex> by itself produces a colon with class-3 
-(relation) spacing. The command <tex>\colon</tex> produces special spacing for 
+<p class="note">Note 1. The <tex>:</tex> by itself produces a colon with class-3
+(relation) spacing. The command <tex>\colon</tex> produces special spacing for
 use in constructions such as <tex>f\colon A\to B </tex> \(f\colon A\to B\).</p>
-<p class="note">Note 2. Although the commands <tex>\cdots</tex> and 
-<tex>\ldots</tex> are frequently used, we recommend the more semantically oriented 
+<p class="note">Note 2. Although the commands <tex>\cdots</tex> and
+<tex>\ldots</tex> are frequently used, we recommend the more semantically oriented
 commands <tex>\dotsb</tex> <tex>\dotsc</tex> <tex>\dotsi</tex> <tex>\dotsm</tex>
 <tex>\dotso</tex> for most purposes (see 4.6).</p>
 
@@ -254,15 +264,15 @@ commands <tex>\dotsb</tex> <tex>\dotsc</tex> <tex>\dotsi</tex> <tex>\dotsm</tex>
 \vert _ \arrowvert _ \backslash
 \Vert _ \Arrowvert _ \bracevert
 </div>
-<p class="note">Note 1. Using <tex>\vert</tex>, <tex>|</tex>, 
-<tex>\Vert</tex>, or <tex>\|</tex> for paired delimiters is not recommended 
+<p class="note">Note 1. Using <tex>\vert</tex>, <tex>|</tex>,
+<tex>\Vert</tex>, or <tex>\|</tex> for paired delimiters is not recommended
 (see 6.2).</p>
 <p class="note">Synonyms:
 \(\|\) <tex>\|</tex></p>
 
 <h3>3.14. Nonpairing extensible symbols</h3>
 <div class="syms">
-\uparrow _ \downarrow _ \updownarrow 
+\uparrow _ \downarrow _ \updownarrow
 \Uparrow _ \Downarrow _ \Updownarrow
 </div>
 
@@ -289,7 +299,7 @@ commands <tex>\dotsb</tex> <tex>\dotsc</tex> <tex>\dotsi</tex> <tex>\dotsm</tex>
 \csc        \lg         \sec
 \deg        \lim        \sin
 </div>
-<p>To define additional named operators outside the above list, use the 
+<p>To define additional named operators outside the above list, use the
 <tex>\DeclareMathOperator</tex> command; for example, after</p>
 <pre><code>\DeclareMathOperator{\rank}{rank}
 \DeclareMathOperator{\esssup}{ess\,sup}</code></pre>
@@ -298,10 +308,10 @@ commands <tex>\dotsb</tex> <tex>\dotsc</tex> <tex>\dotsi</tex> <tex>\dotsm</tex>
 \rank(x)
 \esssup(y,z)
 </div>
-<p>The star form <tex>\DeclareMathOperator*</tex> creates an operator that 
+<p>The star form <tex>\DeclareMathOperator*</tex> creates an operator that
 takes limits in a displayed formula like <tex>sup</tex> or <tex>max</tex>.</p>
-<p>When predefining such a named operator is problematic (e.g., when using one 
-in the title or abstract of an article), there is an alternative form that can 
+<p>When predefining such a named operator is problematic (e.g., when using one
+in the title or abstract of an article), there is an alternative form that can
 be used directly:</p>
 <div class="syms">
 \operatorname{rank}(x)
@@ -361,24 +371,24 @@ be used directly:</p>
 <td>\(\)</td>
 </tr>
 </table>
-<p>A common desire is to get a bold version of a particular math symbol. For 
-those symbols where <tex>\mathbf</tex> is not applicable, the 
+<p>A common desire is to get a bold version of a particular math symbol. For
+those symbols where <tex>\mathbf</tex> is not applicable, the
 <tex>\boldsymbol</tex> or <tex>\pmb</tex> commands can be used</p>
 
 <table style="width: 100%;" class="centre">
     <tr>
         <td class="src"><pre><code>A_\infty + \pi A_0
-\sim \mathbf{A}_{\boldsymbol{\infty}} 
-\boldsymbol{+} \boldsymbol{\pi} 
+\sim \mathbf{A}_{\boldsymbol{\infty}}
+\boldsymbol{+} \boldsymbol{\pi}
 \mathbf{A}_{\boldsymbol{0}}
-\sim\pmb{A}_{\pmb{\infty}} 
+\sim\pmb{A}_{\pmb{\infty}}
 \pmb{+}\pmb{\pi} \pmb{A}_{\pmb{0}}</code></pre></td>
         <td class="eqn">\[
 A_\infty + \pi A_0
-\sim \mathbf{A}_{\boldsymbol{\infty}} 
-\boldsymbol{+} \boldsymbol{\pi} 
+\sim \mathbf{A}_{\boldsymbol{\infty}}
+\boldsymbol{+} \boldsymbol{\pi}
 \mathbf{A}_{\boldsymbol{0}}
-\sim\pmb{A}_{\pmb{\infty}} 
+\sim\pmb{A}_{\pmb{\infty}}
 \pmb{+}\pmb{\pi} \pmb{A}_{\pmb{0}}
         \]</td>
     </tr>
