@@ -1,8 +1,8 @@
 define(function(require, exports, module) {
     var $ = require('zepto');
-    var _ = require('lodash');
     var THREE = require('three');
     require('TrackballControls');
+    var MK = require('app/lib');
     var ui = require('app/ui');
 
 	var shapes = {
@@ -235,7 +235,7 @@ define(function(require, exports, module) {
 			hi_ = dom.min + hi * ful,
 			num = Math.floor(rng * dom.steps);
 
-		return _.extend(_.clone(dom), {lo:lo, hi:hi, off: lo_, scale:(hi_-lo_), num:num});
+		return Object.assign({}, dom, {lo:lo, hi:hi, off: lo_, scale:(hi_-lo_), num:num});
 	}
 
 //	function ennepersSurface(u_dom, v_dom, p) {
@@ -282,7 +282,7 @@ define(function(require, exports, module) {
 		var shape = shape_def();
 		var extras = [];
 
-		if (_.isArray(shape)) {
+		if (Array.isArray(shape)) {
 			extras = shape.slice(1);
 			shape = shape[0];
 		}
@@ -348,19 +348,20 @@ define(function(require, exports, module) {
 		}
 
 		function toggleView(id, name, checked) {
-			var tmpl = _.template('<input type="checkbox" id="<%=id%>" <%=checked%>/><label for="<%=id%>" class="ui"><%=name%></label>');
-			var frag = $(tmpl({id:id, name:name, checked:(checked?'checked ':'')}));
-			//frag[0].checked = checked;
-			return _.map(frag, function (x) { return x.outerHTML; }).join('');
+			var frag = MK.strerp(
+				'<input type="checkbox" id="{{id}}"{{checked}}/><label for="{{id}}" class="ui">{{name}}</label>',
+				{id:id, name:name, checked:(checked ? ' checked' : '')});
+
+			return frag;
 		}
 		function slideView(id, left, right, cls) {
 			//console.log( param );
-			return _.template(
-				'<tr class="<%=cls%>">' +
-					'<td width="20" style="text-align: center;"><span>\\(<%= left %>\\)</span></td>' +
-					'<td width="380"><div id="<%= id %>-slide"></div></td>' +
-					'<td width="100" nowrap><span id="<%= id %>-txt"><%= right %></span></td>' +
-				'</tr>')(
+			return MK.strerp(
+				'<tr class="{{cls}}">' +
+					'<td width="20" style="text-align: center;"><span>\\({{left}}\\)</span></td>' +
+					'<td width="380"><div id="{{id}}-slide"></div></td>' +
+					'<td width="100" nowrap><span id="{{id}}-txt">{right}</span></td>' +
+				'</tr>',
 				//'<tr class="<%=cls%>"><td class="math" style="text-align: right;"><span>\\(<%= left %>\\)</span></td>' +
 				//'<td width="100%"><div id="<%= id %>-slide"></div></td>' +
 				//'<td class="math"><span id="<%= id %>-txt" style="width: 110px">\\(<%= right %>\\)</span></td></tr>')(
@@ -459,7 +460,7 @@ define(function(require, exports, module) {
 			var ps = [];
 			if (params && params.length > 0) {
 				ps.push('<tr><td colspan="3" class="ui-title">Parameters:</td></tr>');
-				ps.push(_.map(params, paramView).join(''));
+				ps.push(params.map(paramView).join(''));
 			}
 			ps.push('<tr><td colspan="3" class="ui-title">Domain:</td></tr>');
 			ps.push(domainView(0, shape.domain[0]));
@@ -474,12 +475,14 @@ define(function(require, exports, module) {
 
 		function paramUI()
 		{
-			var names = _.map(shape.param, function (p) { return p.name; });
+			//var names = shape.param.map(function (p) { return p.name; });
 			//$("#params").html(paramsView(shape.param));
 //
-			_.each(shape.param, function (p, i) {
-				paramControl(i, p.name, p.min, p.max, p.step, p.init);
-			});
+			if (shape.param) {
+				shape.param.forEach(function (p, i) {
+					paramControl(i, p.name, p.min, p.max, p.step, p.init);
+				});
+			}
 			domainControl(0, shape.domain[0]);
 			domainControl(1, shape.domain[1]);
 			lerpControl();
@@ -520,7 +523,7 @@ define(function(require, exports, module) {
 						'<tr><td>' + toggleView('axes-btn', 'Axes <span style="color: #F00">X</span> <span style="color: #0F0">Y</span> <span style="color: #66F">Z</span', show_axes) + '</td></tr>' +
 						'<tr><td>' + toggleView('xyplane-btn', 'XY plane', show_xyplane) + '</td></tr>' +
 						'<tr><td>' + toggleView('color-btn', 'RGB normals', use_normals) + '</td></tr>';
-			_.each(extras, function(extra, i) {
+			extras.forEach(function(extra, i) {
 				html += '<tr><td>' + toggleView('extra-btn-'+i, extra.name, extra.show) + '</td></tr>';
 			});
 
@@ -575,7 +578,7 @@ define(function(require, exports, module) {
 				else
 					group.remove(xyplane);
 			});
-			_.each(extras, function(extra, i) {
+			extras.forEach(function(extra, i) {
 				$('#extra-btn-'+i).click( function() {
 					//console.log( $(this)[0] );
 					extra.show = $(this)[0].checked;
@@ -612,7 +615,7 @@ define(function(require, exports, module) {
 				group.add( axes );
 
 
-			_.each(extras, function(extra, i) {
+			extras.forEach(function(extra, i) {
 				extra.geom = extra.calc(dom[0], dom[1], param, t); //, bands(1,3)),
 				extra.group = new THREE.Object3D();
 
@@ -620,8 +623,8 @@ define(function(require, exports, module) {
 				//	extra.surface = new THREE.Mesh( extra.geom.body.clone(), body_material );
 				//	extra.group.add(extra.surface);
 				//}
-				if (_.isArray(extra.geom)) {
-					_.each(extra.geom, function(g) {
+				if (Array.isArray(extra.geom)) {
+					extra.geom.forEach(function(g) {
 						extra.group.add(new THREE.LineSegments( g.clone(), extra_wire_material[i % 3] ));
 					});
 				} else {

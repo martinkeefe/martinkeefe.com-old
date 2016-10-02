@@ -1,13 +1,12 @@
 define(function(require, exports, module) {
     var $ = require('zepto');
-    var _ = require('lodash');
 
     function syms(i, elem) {
         var text = elem.innerHTML;
         var html = '<table class="centre">';
-        _.each(text.split('\n'), function (line) {
+        text.split('\n').forEach(function (line) {
             html += '<tr>';
-            _.each(line.split(' '), function (code) {
+            line.split(' ').forEach(function (code) {
                 if (code === '_') {
                     html += '<td></td><td></td>';
                 } else if (code !== '') {

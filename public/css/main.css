@@ -68,8 +68,10 @@ p.note {
 }
 
 hr {
-	border-color: #666;
-	border-style: solid;
+	border-color: rgb(98,95,111); /* 10PB 4/2 */
+	border-style: none;
+	border-top-style: solid;
+	margin: 24px 18px;
 }
 
 /*============================================================================*/
@@ -98,18 +100,35 @@ nav.side h2, nav.side h3, nav.side h4 {
 }
 
 nav.side ul {
-  -list-style-type: none;
-  padding-left: 1em;
+  list-style-type: none;
+  padding-left: 11px;
   margin: 1em 0 0 0;
 }
+
+
+nav.side ul li {
+  margin-bottom: 0.5em;
+  line-height: 1.25em;
+  margin-left: 6px;
+  text-indent: -9px;
+  font-size: 16px;
+}
+nav.side ul li:before {
+    content: "►";
+    display: inline-block;
+    width: 9px;
+    font-size: 12px;
+}
+
 nav.side ol {
   padding-left: 1em;
   margin: 1em 0 0 0;
 }
 
-nav.side li {
+nav.side ol li {
   margin-bottom: 0.5em;
   line-height: 1.25em;
+  font-size: 16px;
 }
 
 div.body {

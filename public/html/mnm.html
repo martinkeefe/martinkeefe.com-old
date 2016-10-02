@@ -35,12 +35,12 @@
 <!-- TEMPLATE -->
 <script type="text/template" id="playlist-item">
 	<div class="item">
-		<img src="http://s3-eu-west-1.amazonaws.com/raiment57/mnm<%= mnm_num %>/<%= trk_num %>.jpg">
+		<img src="http://s3-eu-west-1.amazonaws.com/raiment57/mnm{{mnm_num}}/{{trk_num}}.jpg">
 		<div class="data">
-			<p><big><%= trk_num %></big></p>
-			<p><b><%= art_name %></b></p>
-			<p>&ldquo;<%= trk_name %>&rdquo;</p>
-			<p><i><%= alb_name %></i>, <%= alb_year %></p>
+			<p><big>{{trk_num}}</big></p>
+			<p><b>{{art_name}}</b></p>
+			<p>&ldquo;{{trk_name}}&rdquo;</p>
+			<p><i>{{alb_name}}</i>, {{alb_year}}</p>
 		</div>
 	</div>
 </script>

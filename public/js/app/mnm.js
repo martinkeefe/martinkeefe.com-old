@@ -1,18 +1,19 @@
 define(function(require, exports, module) {
     var $ = require('zepto');
-    var _ = require('lodash');
+    var MK = require('app/lib');
 
     var mnm_num;
     var items;
     var index;
-    var audio = $('<audio controls></audio>'); // <audio src="http://s3-eu-west-1.amazonaws.com/raiment57/mnm09/17.mp3" controls></audio>
+    var audio = $('<audio controls></audio>');
 
     function play() {
     	console.log(' play', index);
     	if (index < items.length) {
+    		var src = MK.strerp('http://s3-eu-west-1.amazonaws.com/raiment57/mnm{{mnm_num}}/{{trk_num}}.mp3', items[index]);
 			items[index].item.addClass('active');
 	    	items[index].item.append(audio);
-	    	audio.attr('src', 'http://s3-eu-west-1.amazonaws.com/raiment57/mnm' + items[index].mnm_num + '/' + items[index].trk_num + '.mp3');
+	    	audio.attr('src', src);
 	    	audio[0].play();
 	    }
     }
@@ -22,15 +23,11 @@ define(function(require, exports, module) {
 		if (index < items.length) {
 			items[index].item.removeClass('active');
 		}
-    	//audio[0].pause();
     	audio.remove();
     }
 
     function next(e) {
     	console.log('next');
-    	//if (e) {
-    	//	e.stopPropagation();
-    	//}
     	stop();
     	index++;
     	play();
@@ -47,7 +44,7 @@ define(function(require, exports, module) {
 
     function render(data) {
 	    var playlist = $('#playlist');
-	    var template = _.template($('#playlist-item').html());
+	    var template = $('#playlist-item').html();
 
     	var recs = data.split('\n');
     	var rec0 = recs[0].split('\t');
@@ -57,18 +54,18 @@ define(function(require, exports, module) {
 
 	    items = [];
 	    playlist.empty();
-		_.each(recs, function(rec, i) {
+		recs.forEach(function(rec, i) {
 			if (i > 0) {
 				rec = rec.split('\t');
 				var info = {
 					mnm_num: mnm_num,
-					trk_num: _.padStart(i,2,'0'),
+					trk_num: ('0' + i).substr(-2),
 					art_name: rec[0],
 					trk_name: rec[1],
 					alb_name: rec[3],
 					alb_year: rec[5],
 				};
-				info.item = $(template(info));
+				info.item = $(MK.strerp(template, info));
 				info.item.click(function() {
 					go_to(i-1);
 				});
