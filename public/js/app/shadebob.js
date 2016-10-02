@@ -1,6 +1,6 @@
 define(function(require, exports, module) {
     var $ = require('zepto');
-    
+
     function $i(id) { return document.getElementById(id); }
     function $c(code) { return String.fromCharCode(code); }
     //function get_screen_size()
@@ -58,6 +58,9 @@ define(function(require, exports, module) {
 
     function reset()
     {
+        context.fillStyle='rgb(54,50,65)';
+        context.fillRect(0,0,canvas_w,canvas_h);
+
         clearTimeout(timeout);
 
         a = Math.random(0,1)*angle;
@@ -130,15 +133,16 @@ define(function(require, exports, module) {
 
         a += angle*Math.cos(b);
         b += angle*0.1;
-        if (b > limit1) {
-            context.fillStyle='rgba(0.2,0.2,0.27,0.08)';
-            //context.fillRect(0,0,canvas_w,canvas_h);
-        }
+        //if (b > limit1) {
+        //    context.fillStyle='rgba(0.2,0.2,0.27,0.08)';
+        //    context.fillRect(0,0,canvas_w,canvas_h);
+        //}
         if (b < limit2) {
             timeout=setTimeout(anim,fps);
         }
         else {
-            reset();
+            //reset();
+            pause = true;
         }
     }
 
@@ -194,21 +198,23 @@ define(function(require, exports, module) {
         evt = evt || event;
         var key = evt.which || evt.keyCode;
         var ctrl = evt.ctrlKey;
-        switch(key)
-        {
-        case 27:
-        case 13:
-            pause = pause ? false : true;
-            if (pause)
-                clearTimeout(timeout);
-            else
-                anim();
-            break;
-        case 32:
+        //switch(key)
+        //{
+        //case 32:
+        //    console.log('pause');
+        //    pause = !pause;
+        //    if (pause)
+        //        clearTimeout(timeout);
+        //    else
+        //        anim();
+        //    break;
+        //case 27:
+        //case 13:
+        //    console.log('reset');
             reset();
-            break;
-        }
-        top.status = '$' + key + '=' + $c(key);
+        //    break;
+        //}
+        //top.status = '$' + key + '=' + $c(key);
     }
 
     //$(function() {

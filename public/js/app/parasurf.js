@@ -211,21 +211,6 @@ define(function(require, exports, module) {
 			wire: wire_geometry,
 		};
 	};
-//	function ubands(num, skip) {
-//		return function(i, j) {
-//			return i % (num + skip) < num;
-//		};
-//	}
-//	function vbands(num, skip) {
-//		return function(i, j) {
-//			return j % (num + skip) < num;
-//		};
-//	}
-//	function bands(num, skip) {
-//		return function(i, j) {
-//			return i % (num + skip) < num || j % (num + skip) < num;
-//		};
-//	}
 
 	function domain(dom, lo, hi)
 	{
@@ -237,27 +222,6 @@ define(function(require, exports, module) {
 
 		return Object.assign({}, dom, {lo:lo, hi:hi, off: lo_, scale:(hi_-lo_), num:num});
 	}
-
-//	function ennepersSurface(u_dom, v_dom, p) {
-//		function func(_u, _v) {
-//			var u = u_dom.off + _u * u_dom.scale,
-//				v = v_dom.off + _v * v_dom.scale,
-//				x = u - (u*u*u/3) + u*v*v,
-//				y = v - (v*v*v/3) + u*u*v,
-//				z = u*u - v*v;
-//			return new THREE.Vector3(x, y, z);
-//		}
-//		return {
-//			calc: function() {
-//				return calcParametricGeometry(func, u_dom.num, v_dom.num);
-//			},
-//			domain: [
-//				domain(0, 1, 40, -4, 4),
-//				domain(0, 1, 40, -1, 1),
-//			],
-//			param: [],
-//		};
-//	}
 
 	function parasurf(elem_id, shape_name){
 		var scene;
@@ -355,16 +319,12 @@ define(function(require, exports, module) {
 			return frag;
 		}
 		function slideView(id, left, right, cls) {
-			//console.log( param );
 			return MK.strerp(
 				'<tr class="{{cls}}">' +
 					'<td width="20" style="text-align: center;"><span>\\({{left}}\\)</span></td>' +
 					'<td width="380"><div id="{{id}}-slide"></div></td>' +
 					'<td width="100" nowrap><span id="{{id}}-txt">{right}</span></td>' +
 				'</tr>',
-				//'<tr class="<%=cls%>"><td class="math" style="text-align: right;"><span>\\(<%= left %>\\)</span></td>' +
-				//'<td width="100%"><div id="<%= id %>-slide"></div></td>' +
-				//'<td class="math"><span id="<%= id %>-txt" style="width: 110px">\\(<%= right %>\\)</span></td></tr>')(
 				{id:id, left:left, right:right, cls:cls||''});
 		}
 
@@ -432,10 +392,8 @@ define(function(require, exports, module) {
 					}
 					return val.toFixed(2) + " π";
 				};
-				//return "[" + pi_val(lo) + ", " + pi_val(hi) + ")";
 				return pi_val(lo) + ", " + pi_val(hi);
 			} else {
-				//return "[" + lo.toFixed(2) + ", " + hi.toFixed(2) + ")";
 				return lo.toFixed(2) + ", " + hi.toFixed(2);
 			}
 		}
@@ -468,16 +426,10 @@ define(function(require, exports, module) {
 			ps.push('<tr><td colspan="3" class="ui-title">Interpolation from domain to shape:</td></tr>');
 			ps.push(lerpView());
 			return ps.join('');
-
-			//var tmplt = _.template("blah<table border=0 cellpadding=0 cellspacing=2><%= ps %></table>");
-			//return '<table border=0 cellpadding=0 cellspacing=2>' + ps + '</table>';
 		}
 
 		function paramUI()
 		{
-			//var names = shape.param.map(function (p) { return p.name; });
-			//$("#params").html(paramsView(shape.param));
-//
 			if (shape.param) {
 				shape.param.forEach(function (p, i) {
 					paramControl(i, p.name, p.min, p.max, p.step, p.init);
@@ -490,15 +442,6 @@ define(function(require, exports, module) {
 			group = makeShape();
 			root.add( group );
 		}
-
-		/*function toggleBtn(id, name, checked, onclick) {
-			var btn = $(_.template(
-				'<input type="checkbox" id="<%=id%>" style="margin: 4px" /><label for="<%=id%>"><%=name%></label>',
-				{id:id, name:name}));
-			btn[0].checked = checked;
-			//btn.button().click(onclick);
-			return btn;
-		}*/
 
 		function UI(elem_id) {
 			var elem = $('#'+elem_id),
@@ -535,11 +478,9 @@ define(function(require, exports, module) {
 			canvas.after(html);
 
 			$('#ani-btn').click( function() {
-				//console.log( $(this)[0] );
 				animate = $(this)[0].checked;
 			});
 			$('#wire-btn').click( function() {
-				//console.log( $(this)[0] );
 				show_wires = $(this)[0].checked;
 				if (show_wires)
 					group.add(wire_lines);
@@ -547,7 +488,6 @@ define(function(require, exports, module) {
 					group.remove(wire_lines);
 			});
 			$('#face-btn').click( function() {
-				//console.log( $(this)[0] );
 				show_faces = $(this)[0].checked;
 				if (show_faces)
 					group.add(body_mesh);
@@ -555,7 +495,6 @@ define(function(require, exports, module) {
 					group.remove(body_mesh);
 			});
 			$('#color-btn').click( function() {
-				//console.log( $(this)[0] );
 				use_normals = $(this)[0].checked;
 				makeScene();
 				root.remove( group );
@@ -563,7 +502,6 @@ define(function(require, exports, module) {
 				root.add( group );
 			});
 			$('#axes-btn').click( function() {
-				//console.log( $(this)[0] );
 				show_axes = $(this)[0].checked;
 				if (show_axes)
 					group.add(axes);
@@ -571,7 +509,6 @@ define(function(require, exports, module) {
 					group.remove(axes);
 			});
 			$('#xyplane-btn').click( function() {
-				//console.log( $(this)[0] );
 				show_xyplane = $(this)[0].checked;
 				if (show_xyplane)
 					group.add(xyplane);
@@ -580,7 +517,6 @@ define(function(require, exports, module) {
 			});
 			extras.forEach(function(extra, i) {
 				$('#extra-btn-'+i).click( function() {
-					//console.log( $(this)[0] );
 					extra.show = $(this)[0].checked;
 					if (extra.show)
 						group.add(extra.group);

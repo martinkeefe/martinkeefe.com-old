@@ -12,7 +12,7 @@
 * {
 	box-sizing: border-box;
 }
-
+html {overflow-y: scroll; }
 body {
 	color: #BBB;
 	background-color: rgb(54,50,65); /* 10PB 2/2 */
@@ -114,10 +114,10 @@ nav.side ul li {
   font-size: 16px;
 }
 nav.side ul li:before {
-    content: "►";
+    content: "»";
     display: inline-block;
     width: 9px;
-    font-size: 12px;
+    font-size: 20px;
 }
 
 nav.side ol {
