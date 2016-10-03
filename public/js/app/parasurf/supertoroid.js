@@ -33,8 +33,8 @@ define(function(require, exports, module) {
             param: [
                 {name:'R', min:0, max:4, step:0.1, init:2},
                 {name:'r', min:0, max:4, step:0.1, init:1},
-                {name:'\\alpha', min:0, max:4, step:0.1, init:2},
-                {name:'\\beta' , min:0, max:4, step:0.1, init:2},
+                {name:'α', min:0, max:4, step:0.1, init:2},
+                {name:'β' , min:0, max:4, step:0.1, init:2},
             ],
         };
     }

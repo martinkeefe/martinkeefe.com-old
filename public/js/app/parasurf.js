@@ -3,7 +3,8 @@ define(function(require, exports, module) {
     var THREE = require('three');
     require('TrackballControls');
     var MK = require('app/lib');
-    var ui = require('app/ui');
+    //var ui = require('app/ui');
+    var xgui = require('xgui');
 
 	var shapes = {
 		'cone': require('app/parasurf/cone'),
@@ -212,8 +213,7 @@ define(function(require, exports, module) {
 		};
 	};
 
-	function domain(dom, lo, hi)
-	{
+	function domain(dom, lo, hi) {
 		var rng = hi - lo,
 			ful = dom.max - dom.min,
 			lo_ = dom.min + lo * ful,
@@ -311,69 +311,6 @@ define(function(require, exports, module) {
 			scene.add( root );
 		}
 
-		function toggleView(id, name, checked) {
-			var frag = MK.strerp(
-				'<input type="checkbox" id="{{id}}"{{checked}}/><label for="{{id}}" class="ui">{{name}}</label>',
-				{id:id, name:name, checked:(checked ? ' checked' : '')});
-
-			return frag;
-		}
-		function slideView(id, left, right, cls) {
-			return MK.strerp(
-				'<tr class="{{cls}}">' +
-					'<td width="20" style="text-align: center;"><span>\\({{left}}\\)</span></td>' +
-					'<td width="380"><div id="{{id}}-slide"></div></td>' +
-					'<td width="100" nowrap><span id="{{id}}-txt">{right}</span></td>' +
-				'</tr>',
-				{id:id, left:left, right:right, cls:cls||''});
-		}
-
-		function paramView(param, index) {
-			return slideView('p' + index, param.name, param.init.toFixed(1), 'green');
-		}
-		function lerpView() {
-			return slideView('t', "t", "1.00", 'yellow');
-		}
-		function domainView(i, dmn) {
-			return slideView(dom[i].name, dom[i].name, domainText(i), 'violet');
-		}
-		function paramControl(i, name, _min, _max, _step, _init) {
-			param[i] = _init;
-
-			ui.hslide("p" + i + "-slide", {
-				    value:  _init || 1,
-				    step:   _step || 0.1,
-				    min:    _min || 0,
-				    max: 	_max || 1,
-				    peer:	"p" + i + "-txt",
-				    size: 	380,
-				},
-				function(value) {
-					param[i] = value;
-					root.remove( group );
-					group = makeShape();
-					root.add( group );
-				});
-		}
-		function lerpControl() {
-			t = 1;
-
-			ui.hslide("t-slide", {
-				    value:  1,
-				    step:   0.01,
-				    min:    0,
-				    max:    1,
-				    peer:	"t-txt",
-				    size: 	380,
-				},
-				function(value) {
-					t = value;
-					root.remove( group );
-					group = makeShape();
-					root.add( group );
-				});
-		}
-
 		function domainText(i) {
 			var pi = dom[i].pi === true ? Math.PI : 1,
 				lo = dom[i].off / pi,
@@ -397,135 +334,140 @@ define(function(require, exports, module) {
 				return lo.toFixed(2) + ", " + hi.toFixed(2);
 			}
 		}
-		function domainControl(i, dmn) {
-			ui.hrange(dmn.name+"-slide", {
-				    values:	[0,1],
-				    step:	1/36,
-				    min:	0,
-				    max:	1,
-				    size: 	380,
-				},
-				function(lo,hi) {
-					dom[i] = domain(dmn, lo, hi);
-					root.remove( group );
-					group = makeShape();
-					root.add( group );
-					$('#'+dmn.name+"-txt").text(domainText(i));
-				});
-		}
 
-		function paramsView(params) {
-			var ps = [];
-			if (params && params.length > 0) {
-				ps.push('<tr><td colspan="3" class="ui-title">Parameters:</td></tr>');
-				ps.push(params.map(paramView).join(''));
-			}
-			ps.push('<tr><td colspan="3" class="ui-title">Domain:</td></tr>');
-			ps.push(domainView(0, shape.domain[0]));
-			ps.push(domainView(1, shape.domain[1]));
-			ps.push('<tr><td colspan="3" class="ui-title">Interpolation from domain to shape:</td></tr>');
-			ps.push(lerpView());
-			return ps.join('');
-		}
+		function XUI(elem_id) {
+			$('#ps-shape').css('text-align', 'center');
 
-		function paramUI()
-		{
-			if (shape.param) {
-				shape.param.forEach(function (p, i) {
-					paramControl(i, p.name, p.min, p.max, p.step, p.init);
-				});
-			}
-			domainControl(0, shape.domain[0]);
-			domainControl(1, shape.domain[1]);
-			lerpControl();
-
-			group = makeShape();
-			root.add( group );
-		}
-
-		function UI(elem_id) {
-			var elem = $('#'+elem_id),
-				canvas = $('<canvas width=' + elem.width() + ' height=' + elem.width()*0.75 + '></canvas>');
+			var elem = $('#'+elem_id);
+			var canvas = $('<canvas width=' + elem.width() + ' height=' + elem.width()*0.75 + '></canvas>');
 
 			elem.append(canvas);
 			setup(canvas.get(0), canvas.width(), canvas.height());
 
-			var html =
-				'<table border=0 cellpadding=0 cellspacing=2 style="margin: 0 auto;"><tr>' +
+			var chk_h = 20;
+			var opts_h = (7 + extras.length) * chk_h;
+			var para_h = shape.param && shape.param.length ? (1 + shape.param.length) * chk_h : 0;
+			var domn_h = (1 + shape.domain.length) * chk_h;
+			var height = Math.max(opts_h, para_h + domn_h);
+			var gui = new xgui( {width: 280, height: height, textColor: "#BBB",
+				backgroundColor: "rgb(91,97,111)", dimColor: "rgb(124,148,188)", frontColor: "rgb(220,200,118)"} );
 
-				  '<td valign="top">' +
-					'<table border=0 cellpadding=0 cellspacing=2>' + paramsView(shape.param) + '</table>' +
-				  '</td>' +
+			var gui_el = $('<div style="width: 280px; margin: 0 auto;"></div>');
+			gui_el.append(gui.getDomElement());
+			elem.append(gui_el);
 
-				  '<td nowrap valign="top">' +
-			    	'<table border=0 cellpadding=0 cellspacing=2>' +
-					    '<tr><td><div class="ui-title">Options:</div></td></tr>' +
-						'<tr><td>' + toggleView('ani-btn', 'Tumble', animate) + '</td></tr>' +
-						'<tr><td>' + toggleView('wire-btn', 'Wireframe', show_wires) + '</td></tr>' +
-						'<tr><td>' + toggleView('face-btn', 'Surface', show_faces) + '</td></tr>' +
-						'<tr><td>' + toggleView('axes-btn', 'Axes <span style="color: #F00">X</span> <span style="color: #0F0">Y</span> <span style="color: #66F">Z</span', show_axes) + '</td></tr>' +
-						'<tr><td>' + toggleView('xyplane-btn', 'XY plane', show_xyplane) + '</td></tr>' +
-						'<tr><td>' + toggleView('color-btn', 'RGB normals', use_normals) + '</td></tr>';
-			extras.forEach(function(extra, i) {
-				html += '<tr><td>' + toggleView('extra-btn-'+i, extra.name, extra.show) + '</td></tr>';
+			var x = 0, y = 0, dy = chk_h;
+
+			new gui.Label( {x: x, y: y+4, text: "Options:"} );
+			y += dy;
+
+			var ani_chk = new gui.CheckBox( {x: x, y: y, text: "Tumble", selected: false, width: 14, height:14} );
+			ani_chk.value.bind(function(v) {
+				animate = v;
 			});
+			y += dy;
 
-			html +=
-					'</table>' +
-				  '</td>' +
-				'</tr></table>';
+			var wire_chk = new gui.CheckBox( {x: x, y: y, text: "Wireframe", selected: true, width: 14, height:14} );
+			wire_chk.value.bind(function(v) {
+				show_wires = v;
+				if (show_wires) group.add(wire_lines);
+				else			group.remove(wire_lines);
+			});
+			y += dy;
 
-			canvas.after(html);
+			var face_chk = new gui.CheckBox( {x: x, y: y, text: "Surface", selected: true, width: 14, height:14} );
+			face_chk.value.bind(function(v) {
+				show_faces = v;
+				if (show_faces) group.add(body_mesh);
+				else			group.remove(body_mesh);
+			});
+			y += dy;
 
-			$('#ani-btn').click( function() {
-				animate = $(this)[0].checked;
+			var axes_chk = new gui.CheckBox( {x: x, y: y, text: "Axes", selected: true, width: 14, height:14} );
+			axes_chk.value.bind(function(v) {
+				show_axes = v;
+				if (show_axes)	group.add(axes);
+				else			group.remove(axes);
 			});
-			$('#wire-btn').click( function() {
-				show_wires = $(this)[0].checked;
-				if (show_wires)
-					group.add(wire_lines);
-				else
-					group.remove(wire_lines);
+			y += dy;
+
+			var xy_chk = new gui.CheckBox( {x: x, y: y, text: "XY Plane", selected: true, width: 14, height:14} );
+			xy_chk.value.bind(function(v) {
+				show_xyplane = v;
+				if (show_xyplane)	group.add(xyplane);
+				else				group.remove(xyplane);
 			});
-			$('#face-btn').click( function() {
-				show_faces = $(this)[0].checked;
-				if (show_faces)
-					group.add(body_mesh);
-				else
-					group.remove(body_mesh);
-			});
-			$('#color-btn').click( function() {
-				use_normals = $(this)[0].checked;
+			y += dy;
+
+			var rgb_chk = new gui.CheckBox( {x: x, y: y, text: "RGB Normals", selected: false, width: 14, height:14} );
+			rgb_chk.value.bind(function(v) {
+				use_normals = v;
 				makeScene();
 				root.remove( group );
 				group = makeShape();
 				root.add( group );
 			});
-			$('#axes-btn').click( function() {
-				show_axes = $(this)[0].checked;
-				if (show_axes)
-					group.add(axes);
-				else
-					group.remove(axes);
-			});
-			$('#xyplane-btn').click( function() {
-				show_xyplane = $(this)[0].checked;
-				if (show_xyplane)
-					group.add(xyplane);
-				else
-					group.remove(xyplane);
-			});
-			extras.forEach(function(extra, i) {
-				$('#extra-btn-'+i).click( function() {
-					extra.show = $(this)[0].checked;
-					if (extra.show)
-						group.add(extra.group);
-					else
-						group.remove(extra.group);
+			y += dy;
+
+			var ex_chks = [];
+			extras.forEach(function(extra) {
+				var chk  = new gui.CheckBox( {x: x, y: y, text: extra.name, selected: extra.show, width: 14, height:14} );
+				ex_chks.push(chk);
+				chk.value.bind(function(v) {
+					extra.show = v;
+					if (extra.show)	group.add(extra.group);
+					else			group.remove(extra.group);
 				});
+				y += dy;
 			});
 
-			paramUI();
+			x = 140; y = 0;
+			if (shape.param && shape.param.length) {
+				new gui.Label( {x: x, y: y+4, text: "Parameters:"} );
+				y += dy;
+
+				shape.param.forEach(function (p, i) {
+					param[i] = p.init;
+
+					new gui.Label( {x: x, y: y+2, text: p.name, height: 14} );
+					var slide = new gui.HSlider( {x:x+20, y:y, value: p.init, min: p.min, max: p.max,
+						decimals: 1, height: 14, width: 120} );
+					slide.value.bind(function(v) {
+						param[i] = v;
+						root.remove( group );
+						group = makeShape();
+						root.add( group );
+					});
+
+					y += dy;
+				});
+			}
+
+			new gui.Label( {x: x, y: y+4, text: "Domain:"} );
+			y += dy;
+
+			shape.domain.forEach(function (d, i) {
+
+				new gui.Label( {x: x, y: y+2, text: d.name, height: 14} );
+				var slide = new gui.RangeSlider( {x:x+20, y:y, value1: 0.0001, value2: 1.0, min: 0, max: 1,
+					decimals: 1, height: 14, width: 120} );
+				slide.value1.bind(function(v) {
+					dom[i] = domain(d, v, slide.value2.v);
+					root.remove( group );
+					group = makeShape();
+					root.add( group );
+				});
+				slide.value2.bind(function(v) {
+					dom[i] = domain(d, slide.value1.v, v);
+					root.remove( group );
+					group = makeShape();
+					root.add( group );
+				});
+				y += dy;
+			});
+
+			var group = makeShape();
+			root.add( group );
 		}
 
 		function makeShape() {
@@ -585,7 +527,7 @@ define(function(require, exports, module) {
 			controls.update();
 		}
 
-		UI(elem_id);
+		XUI(elem_id);
 		Animator.add( loop );
 	}
 
