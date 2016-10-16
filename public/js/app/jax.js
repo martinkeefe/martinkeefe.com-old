@@ -1,5 +1,6 @@
 define(function(require, exports, module) {
     var $ = require('zepto');
+    var MK = require('app/lib');
 
     function syms(i, elem) {
         var text = elem.innerHTML;
@@ -19,8 +20,8 @@ define(function(require, exports, module) {
         elem.innerHTML = html;
     }
 
-    return function(num, render) {
-        render('jax-text', 'jax/jax' + num, function() {
+    return function(num) {
+        MK.render('jax-text', 'jax/jax' + num, function() {
             $('div.syms').each(syms);
             $('tex').each(function (i, elem) {
                 $(elem).replaceWith('<pre class="code"><code class="tex">'+elem.innerHTML+'</code></pre>');

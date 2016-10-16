@@ -17,7 +17,7 @@ parasurf-limpet-torus;Martin’s Parametric Limpet Torus;parasurf;limpet-torus;p
 parasurf-supertoroid;Martin’s Parametric Supertoroid;parasurf;supertoroid;parasurf;supertoroid;maths|surface|parametric|torus|supertoroid;2016-09-25
 parasurf-mobius;Martin’s Parametric Möbius Strip;parasurf;mobius;parasurf;mobius;maths|surface|parametric|möbius;2016-09-25
 parasurf-boys-1;Martin’s Parametric Boy’s Surface (1);parasurf;boys-1;parasurf;boys-1;maths|surface|parametric|boy’s;2016-09-25
-tiling-gloss;Martin’s Tiling Glossary;tiling;gloss;;;maths|tiling;2016-09-28
+tiling-gloss;Martin’s Tiling Glossary;tiling;gloss;;;maths|tiling;2016-10-12
 mnm-08;Monday Night Martin - Claudia’s Birthday;mnm;;mnm;08;music|monday night|mnm;2016-09-17
 mnm-09;Monday Night Martin - Minimalism and Modern Classical;mnm;;mnm;09;music|monday night|mnm;2016-09-17
 mnm-11;Monday Night Martin - Geof’s Birthday;mnm;;mnm;11;music|monday night|mnm;2016-09-17
@@ -32,3 +32,5 @@ mnm-29;Monday Night Martin - The Life Aquatic;mnm;;mnm;29;music|monday night|mnm
 mnm-31;Monday Night Martin - The Hazards of Love;mnm;;mnm;31;music|monday night|mnm;2016-09-17
 mnm-33;Monday Night Martin - Genetic Drift;mnm;;mnm;33;music|monday night|mnm;2016-09-17
 mnm-34;Monday Night Martin - What Becomes of the Brokenhearted;mnm;;mnm;34;music|monday night|mnm;2016-09-17
+demo;Martin's Demo;canvas-demo;;demo;canvas-demo;;2016-10-03
+js-qref-object;Martin's JavaScript Quick Reference - Object;js-qref;;js-qref;object;;2016-10-09

@@ -285,3 +285,35 @@ dd {
 	margin-top: 0;
 	margin-bottom: 0;
 }
+
+/*============================================================================*/
+
+span.es1, span.es5, span.es6, span.es7, span.esX {
+	padding: 0 5px;
+}
+
+span.es1 {
+	background-color: green;
+	color: white;
+}
+span.es5 {
+	background-color: lightgreen;
+	color: black;
+}
+span.es6 {
+	background-color: yellow;
+	color: black;
+}
+span.es7 {
+	background-color: blue;
+}
+span.esX {
+	background-color: red;
+	color: black;
+}
+
+dt.syntax {
+	font-family: 'Ubuntu Mono', monospace;
+	font-weight: normal;
+	font-size: 16px;
+}
