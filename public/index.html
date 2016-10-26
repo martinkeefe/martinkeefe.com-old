@@ -2,18 +2,25 @@
 <html>
 	<head>
 		<meta charset="UTF-8" />
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
 		<title>Martin's Stuff</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="/css/normalize.css">
 		<link rel="stylesheet" href="/css/main.css">
 		<script data-main="js/main" src="/js/lib/require.js"></script>
 	</head>
 	<body>
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
 		<div id="content"></div>
 		<script src="/js/polyfills.js"></script>
 		<script src="/js/lib/highlight/highlight.js"></script>
 		<script src="/js/lib/highlight/languages/tex.js"></script>
 		<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 		<script src="/js/lib/animator.js"></script>
-		<!--script src="/js/index.js"></script-->
 		<script type="text/javascript">
 			requirejs(['app/index'], function(start) {
 				start();
