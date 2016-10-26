@@ -21,7 +21,7 @@ define(function(require, exports, module) {
     }
 
     return function(num) {
-        MK.render('jax-text', 'jax/jax' + num, function() {
+        MK.render('jax-text', 'jax/jax0' + num, function() {
             $('div.syms').each(syms);
             $('tex').each(function (i, elem) {
                 $(elem).replaceWith('<pre class="code"><code class="tex">'+elem.innerHTML+'</code></pre>');

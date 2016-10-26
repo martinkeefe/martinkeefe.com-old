@@ -22,8 +22,14 @@
 		<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 		<script src="/js/lib/animator.js"></script>
 		<script type="text/javascript">
-			requirejs(['app/index'], function(start) {
-				start();
+
+			MathJax.Hub.Config({
+				extensions: ["tex2jax.js"],
+				"HTML-CSS": { scale: 90, availableFonts: [], webFont: "TeX"}
+			});
+
+			requirejs(['app/lib'], function(MK) {
+				MK.start();
 			});
 		</script>
 	</body>

@@ -106,10 +106,17 @@ define(function(require, exports, module) {
 			var xhttp = new XMLHttpRequest();
 			xhttp.onreadystatechange = function() {
 				if (xhttp.readyState === 4 && xhttp.status === 200) {
-					document.getElementById(id).innerHTML = xhttp.responseText;
+					var el = document.getElementById(id);
+					//var fn = function (ev) {
+					//	console.log(ev);
+					//};
+					//el.addEventListener("DOMSubtreeModified", fn, false);
+
+					el.innerHTML = xhttp.responseText;
 					if (success) {
 						success();
 					}
+					//el.removeEventListener("DOMSubtreeModified", fn, false);
 
 					var host = window.location.href.split('/')[2];
 					for (var i = 0; i < document.links.length; i++) {
@@ -151,9 +158,11 @@ define(function(require, exports, module) {
 					routes[r.route] = function() {
 						title(r.ttl);
 						var done = null;
-						if (r.fn && r.fn in ondone) {
+						if (r.fn) {
 							done = function() {
-								ondone[r.fn].apply(window, r.args.split('|'));
+								requirejs(['app/'+r.fn], function(fn) {
+									fn.apply(window, r.args.split('|'));
+								});
 							};
 						}
 						render('content', r.outer, function() {

@@ -222,5 +222,5 @@ define(function(require, exports, module) {
     //    window.onresize = resize;
     //});
 
-    exports.resize = resize;
+    return resize;
 });
