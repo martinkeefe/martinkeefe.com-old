@@ -1,5 +1,5 @@
 define(function(require, exports, module) {
-	require('es6-promise');
+	require('npo');
 
 	// http://javascript.crockford.com/remedial.html - supplant(object)
 	exports.strerp = function(str, obj) {
@@ -103,20 +103,13 @@ define(function(require, exports, module) {
 
 	function render(id, path, success) {
 		if (path) {
-			var xhttp = new XMLHttpRequest();
-			xhttp.onreadystatechange = function() {
-				if (xhttp.readyState === 4 && xhttp.status === 200) {
+			get('/html/' + path + '.html').then(
+				function(response) {
 					var el = document.getElementById(id);
-					//var fn = function (ev) {
-					//	console.log(ev);
-					//};
-					//el.addEventListener("DOMSubtreeModified", fn, false);
-
-					el.innerHTML = xhttp.responseText;
+					el.innerHTML = response;
 					if (success) {
 						success();
 					}
-					//el.removeEventListener("DOMSubtreeModified", fn, false);
 
 					var host = window.location.href.split('/')[2];
 					for (var i = 0; i < document.links.length; i++) {
@@ -134,10 +127,7 @@ define(function(require, exports, module) {
 							}
 						}
 					}
-				}
-			};
-			xhttp.open('GET', '/html/' + path + '.html', true);
-			xhttp.send();
+				});
 		}
 	};
 	exports.render = render;

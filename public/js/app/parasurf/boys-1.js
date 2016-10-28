@@ -1,5 +1,5 @@
 define(function(require, exports, module) {
-	var ps = require('app/parasurf');
+	var ps = require('app/parasurf-calc');
 
 	return function() {
 		var PI = Math.PI,

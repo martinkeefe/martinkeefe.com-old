@@ -16,6 +16,9 @@ requirejs.config({
         'three': {
             exports: 'THREE'
         },
+        'animator': {
+            exports: 'Animator'
+        },
         //'xgui': {
         //    exports: 'xgui'
         //},

@@ -1,6 +1,6 @@
 define(function(require, exports, module) {
-    var THREE = require('three');
-    var ps = require('app/parasurf');
+    //var THREE = require('three');
+    var ps = require('app/parasurf-calc');
 
     return function() {
         var PI = Math.PI,

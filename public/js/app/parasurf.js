@@ -2,6 +2,7 @@ define(function(require, exports, module) {
     var $ = require('zepto');
     var THREE = require('three');
     require('TrackballControls');
+    var Animator = require('animator');
     var MK = require('app/lib');
     var xgui = require('xgui');
 
