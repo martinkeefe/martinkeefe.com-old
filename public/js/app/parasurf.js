@@ -1,6 +1,8 @@
 define(function(require, exports, module) {
     var $ = require('zepto');
     var THREE = require('three');
+    require('CanvasRenderer');
+    require('Projector');
     require('TrackballControls');
     var Animator = require('animator');
     var MK = require('app/lib');
@@ -69,8 +71,27 @@ define(function(require, exports, module) {
 		var show_xyplane = true;
 		var use_normals = false;
 
+		function webglAvailable() {
+		    try {
+		        var canvas = document.createElement("canvas");
+		        return !!
+		            window.WebGLRenderingContext &&
+		            (canvas.getContext("webgl") ||
+		                canvas.getContext("experimental-webgl"));
+		    } catch(e) {
+		        return false;
+		    }
+		}
+
 		function setup(canvas, width, height) {
-			renderer = new THREE.WebGLRenderer({antialias: true, canvas: canvas, stencil: false});
+			if (webglAvailable()) {
+				renderer = new THREE.WebGLRenderer({antialias: true, canvas: canvas, stencil: false});
+			} else {
+				//renderer = new THREE.CanvasRenderer({antialias: true, canvas: canvas, stencil: false});
+				//canvas.parentNode.removeChild(canvas);
+				canvas.outerHTML = '<p style="color:red; text-align:center">WebGL is not available in this browser.</p>';
+				return;
+			}
 			renderer.setSize(width, height);
 			renderer.setClearColor(0x363241); // 10PB 2/2
 
@@ -332,7 +353,9 @@ define(function(require, exports, module) {
 		}
 
 		XUI(elem_id);
-		Animator.add( loop );
+		if (renderer) {
+			Animator.add(loop);
+		}
 	}
 
     return function(shape) {
