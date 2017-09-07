@@ -287,12 +287,12 @@ td.src {
 
 
 
-dt {
+dl.long dt {
 	margin-top: 0.5em;
 	font-weight: bold;
 }
 
-dd {
+dl.long dd {
 	margin-top: 0;
 	margin-bottom: 0;
 }
@@ -328,3 +328,42 @@ dt.syntax {
 	font-weight: normal;
 	font-size: 16px;
 }
+
+/*============================================================================*/
+
+dl.compact {
+    -padding: 0.5em;
+}
+
+dl.compact dt {
+	float: left;
+    clear: left;
+    width: 100px;
+    text-align: right;
+	font-weight: bold;
+}
+
+dl.compact dt::after {
+    content: " – ";
+}
+
+dl.compact dd {
+    margin: 0 0 0 104px;
+    padding: 0 0 0.25em 0;
+}
+
+/*============================================================================*/
+
+table.gui {
+	margin: 1em 0;
+}
+
+table.gui td {
+	padding: 0 0.5em;
+	vertical-align: top;
+}
+
+.leaflet-popup-content {
+	width: 150px;
+}
+

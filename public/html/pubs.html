@@ -1,0 +1,74 @@
+<nav class="side">
+	<a href="/"><img src="/img/martian.png"></a>
+	<ul>
+		<li><a href="/mnm-09">Monday Night Martin</a></li>
+		<li><a href="/parasurf-intro">Parametric Surfaces</a></li>
+		<li><a href="/mathjax-guide-1">MathJax Guide</a></li>
+		<li><a href="/tiling-gloss">Tiling Glossary</a></li>
+		<li><a href="/maths-links">Maths Links</a></li>
+		<li><a href="/pub-watch">Pub Watch</a></li>
+	</ul>
+</nav>
+
+<div class="body">
+	<h1>Pub Watch</h1>
+
+	<p>Keeping an eye on the slow extinction of the British pub. Here is a map of
+	   public watering holes, past and present, in Dorking and the
+	   surrounding area.</p>
+
+	<!--dl class="compact">
+		<dt><span style="color: #6A0">OK</span></dt><dd>Currently open.</dd>
+		<dt><span style="color: #C80">Gastro</span></dt><dd>Open but is mainly for food.</dd>
+		<dt><span style="color: #F00">Limbo</span></dt><dd>Closed but not converted to another use. Might reopen but on danger list.</dd>
+		<dt><span style="color: #82A">Dead</span></dt><dd>Closed and changed use in last decade or so. Could conceivably be resurrected.</dd>
+		<dt><span style="color: #28A">Gone</span></dt><dd>Demolished and/or converted to residential use. A sad case.</dd>
+		<dt><span style="color: #40D">Long Gone</span></dt><dd>Disappeared long ago.</dd>
+	</dl-->
+
+	<table class="gui">
+		<tr>
+			<td><span style="color: #6A0">Alive</span></td>
+			<td><input id="open-chk" type="checkbox"></td>
+			<td><input id="open-btn" type="radio" name="solo"></td>
+			<td>Currently open.</td>
+		</tr>
+		<!--tr>
+			<td><span style="color: #C80">Gastro</span></td>
+			<td><input id="food-chk" type="checkbox"></td>
+			<td><input id="food-btn" type="radio" name="solo"></td>
+			<td>Open but is mainly for food.</td>
+		</tr-->
+		<tr>
+			<td><span style="color: #F00">In Limbo</span></td>
+			<td><input id="limbo-chk" type="checkbox" checked></td>
+			<td><input id="limbo-btn" type="radio" name="solo"></td>
+			<td>Closed but not converted to another use. Might reopen but on danger list.</td>
+		</tr>
+		<tr>
+			<td><span style="color: #82A">Dead</span></td>
+			<td><input id="dead-chk" type="checkbox" checked></td>
+			<td><input id="dead-btn" type="radio" name="solo"></td>
+			<td>Closed and changed use in last decade or so. Could conceivably be resurrected.</td>
+		</tr>
+		<tr>
+			<td><span style="color: #28A">Gone</span></td>
+			<td><input id="gone-chk" type="checkbox" checked></td>
+			<td><input id="gone-btn" type="radio" name="solo"></td>
+			<td>Demolished and/or converted to residential use. Gone forever.</td>
+		</tr>
+		<tr>
+			<td><span style="color: #60F">Buried</span></td>
+			<td><input id="bone-chk" type="checkbox"></td>
+			<td><input id="bone-btn" type="radio" name="solo"></td>
+			<td>Disappeared at least 40 years ago.</td>
+		</tr>
+	</table>
+
+	<div id="mapid" style="height: 570px;"></div>
+
+	<p>Basic data is from CAMRA's <a href="https://whatpub.com/">WhatPub</a> site.
+	   Some use also made of information from <a href="http://www.closedpubs.co.uk/">The Lost Pubs Project</a>
+	   and <a href="https://pubshistory.com/">UK Pub history</a>.</p>
+
+</div>
